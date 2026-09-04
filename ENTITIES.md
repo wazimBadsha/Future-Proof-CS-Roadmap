@@ -34,6 +34,7 @@ This registry names the major entities used by the roadmap and points readers to
 | OWASP Top 10:2025 | Web application security | https://owasp.org/Top10/2025/ |
 | OWASP GenAI Security Project | LLM/GenAI security | https://genai.owasp.org/ |
 | OWASP Top 10 for Agentic Applications:2026 | Agent security | https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ |
+| OWASP Agentic AI Agent Control Standard | Emerging controls for agentic AI systems; evolving material | https://genai.owasp.org/ |
 | NIST AI RMF | AI risk management | https://www.nist.gov/itl/ai-risk-management-framework |
 | NIST GenAI Profile | Generative-AI risk management | https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence |
 
@@ -42,14 +43,14 @@ This registry names the major entities used by the roadmap and points readers to
 | Entity | Scope | Canonical URL |
 |---|---|---|
 | AWS Well-Architected | Architecture review and operational trade-offs | https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html |
-| OpenTelemetry | Traces, metrics and logs | https://opentelemetry.io/docs/what-is-opentelemetry/ |
+| OpenTelemetry | Traces, metrics, logs and GenAI observability | https://opentelemetry.io/docs/what-is-opentelemetry/ |
 
 ## AI engineering
 
 | Entity | Scope | Canonical URL |
 |---|---|---|
 | Model Context Protocol | Model/application integration and tool/resource protocols | https://modelcontextprotocol.io/ |
-| MCP 2026-07-28 release | Current protocol release notes | https://blog.modelcontextprotocol.io/posts/2026-07-28/ |
+| MCP 2026-07-28 release | Current protocol release details | https://blog.modelcontextprotocol.io/posts/2026-07-28/ |
 | OpenAI Agents SDK | Agents, tools, handoffs, guardrails, sessions, MCP and tracing | https://openai.github.io/openai-agents-python/ |
 | SWE-bench | Repository-level software-engineering evaluation | https://github.com/SWE-bench/SWE-bench |
 
@@ -60,3 +61,4 @@ This registry names the major entities used by the roadmap and points readers to
 3. Prefer specifications and maintained documentation over summaries.
 4. For fast-moving AI infrastructure, record the review date.
 5. If an implementation claim matters, inspect the actual implementation rather than inferring behavior from the entity's name or marketing description.
+6. Treat newly announced standards as evolving until their normative status and implementation guidance are clear.
