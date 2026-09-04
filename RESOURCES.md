@@ -32,8 +32,9 @@ This is the maintained list of recommended resources. Links are intentionally bi
 | Entity | Why it is here | Primary resource |
 |---|---|---|
 | OWASP Top 10:2025 | Baseline web application security awareness | https://owasp.org/Top10/2025/ |
-| OWASP GenAI Security Project | LLM/GenAI security risks | https://genai.owasp.org/ |
+| OWASP GenAI Security Project | LLM/GenAI security risks and current 2026 guidance | https://genai.owasp.org/ |
 | OWASP Top 10 for Agentic Applications:2026 | Agent-specific security risks | https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/ |
+| OWASP Agentic AI - Agent Control Standard | Emerging controls for agentic AI systems; treat as evolving guidance | https://genai.owasp.org/ |
 | NIST AI RMF | AI risk management | https://www.nist.gov/itl/ai-risk-management-framework |
 | NIST GenAI Profile | Generative AI-specific risk management guidance | https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence |
 
@@ -42,7 +43,7 @@ This is the maintained list of recommended resources. Links are intentionally bi
 | Entity | Why it is here | Primary resource |
 |---|---|---|
 | AWS Well-Architected | Architecture review across operational excellence, security, reliability, performance, cost and sustainability | https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html |
-| OpenTelemetry | Vendor-neutral traces, metrics and logs | https://opentelemetry.io/docs/what-is-opentelemetry/ |
+| OpenTelemetry | Vendor-neutral traces, metrics and logs, including GenAI observability work | https://opentelemetry.io/docs/what-is-opentelemetry/ |
 
 ## AI engineering
 
