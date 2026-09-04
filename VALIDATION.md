@@ -5,7 +5,7 @@
 
 ## Result
 
-The repository is structurally complete as a research/documentation project. The current research refresh is complete, but the public GitHub Pages publication gate is **not complete**: the latest Pages workflow run failed during `Configure Pages` before site deployment.
+The repository is structurally complete as a research/documentation project. The current research refresh is complete, and the GitHub Pages workflow is present and current. The public GitHub Pages publication gate is **not complete** because GitHub Pages is not enabled/configured for this repository.
 
 ## Repository inventory
 
@@ -19,7 +19,7 @@ The repository is structurally complete as a research/documentation project. The
 | `SOCIAL.md` | Publishing drafts | Present |
 | `VALIDATION.md` | Repository/publication release gate | Refreshed |
 | `docs/index.html` | Human-facing static website | Present |
-| `.github/workflows/pages.yml` | GitHub Pages deployment | Present |
+| `.github/workflows/pages.yml` | GitHub Pages deployment | Present and refreshed |
 
 ## Research validation
 
@@ -27,11 +27,11 @@ The repository is structurally complete as a research/documentation project. The
 
 - MIT Missing Semester 2026 includes shell, development tools, debugging/profiling, Git, packaging/shipping, agentic coding and code quality.
 - MCP has a 2026-07-28 release; the roadmap treats protocol capabilities as versioned rather than permanent.
-- OWASP published 2026 LLM/GenAI guidance and separate agentic-application guidance; OWASP also announced an Agent Control Standard in September 2026.
-- NIST AI RMF remains a core governance reference, while NIST is developing additional sector-specific profiles in 2026.
+- OWASP published 2026 LLM/GenAI guidance and separate agentic-application guidance; the roadmap also tracks the emerging Agent Control Standard work as evolving rather than settled.
+- NIST AI RMF remains a core governance reference, while NIST continues developing additional AI risk-management profiles in 2026.
 - Current agent SDK guidance covers tools, orchestration/handoffs, guardrails, state/session concepts, MCP integration and tracing.
 - OpenTelemetry's current GenAI work supports model/tool/workflow observability.
-- GitHub Pages supports custom workflows using the Pages configuration, artifact upload and deployment actions.
+- GitHub Pages supports custom workflows using Pages configuration, artifact upload and deployment actions.
 
 ### Deliberate corrections
 
@@ -54,20 +54,50 @@ Expected Pages URL:
 
 `https://wazimbadsha.github.io/Future-Proof-CS-Roadmap/`
 
-The latest observed `Deploy GitHub Pages` run (`run 13`, commit `96b1ec4d72e5683202079d073e0f2afb600cc58a`) reached the `Configure Pages` step and failed there; artifact upload and deployment were skipped. This means the repository workflow is present, but publication has not been proven.
+### Workflow existence
 
-The repository is currently private. GitHub documents that Pages availability depends on repository visibility and account/organization plan. Public discoverability therefore also requires an appropriate Pages/visibility configuration.
+The repository contains `.github/workflows/pages.yml` with:
+
+- `actions/checkout@v6`
+- `actions/configure-pages@v6`
+- `actions/upload-pages-artifact@v5`
+- `actions/deploy-pages@v5`
+- `pages: write`
+- `id-token: write`
+- `github-pages` deployment environment
+
+### Actual deployment validation
+
+The latest observed Pages workflow (`run 20`, commit `da58f264a68b83e463e4e66b02ad09790387baee`) started successfully but failed at **`Configure Pages`**. The runner reached checkout and loaded all four Pages actions; artifact upload and deployment were skipped.
+
+The exact failure returned by `actions/configure-pages` was:
+
+> `Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions ... Error: Not Found`
+
+This is direct evidence that the problem is **Pages configuration/enablement**, not missing HTML and not a broken deployment artifact.
+
+The repository is currently private. GitHub documents that Pages is available for private repositories only on supported paid plans, while public repositories are supported on GitHub Free. A private repository can still have a publicly accessible Pages site when the plan permits it.
+
+## Why the workflow cannot finish enablement by itself
+
+`actions/configure-pages` can attempt to enable Pages with its `enablement` input, but GitHub's current action contract requires a token other than the default `GITHUB_TOKEN` for that enablement operation, with suitable administration/Pages permissions. The current workflow correctly uses the default `GITHUB_TOKEN` for the normal deployment path; it cannot use the repository's Pages-admin setting through that token.
+
+Therefore the workflow can **deploy to an already-enabled Pages site**, but it cannot reliably bootstrap the repository's Pages setting from the current token configuration.
 
 ## Release gate
 
 Before calling the project fully published:
 
-1. Enable GitHub Pages for this repository with **GitHub Actions** as the source, if the account/plan permits it.
-2. Confirm the `Deploy GitHub Pages` workflow succeeds.
-3. Confirm a Pages deployment exists for the expected URL.
-4. Open the expected Pages URL without repository authentication if the site is intended for public readers.
-5. Check every navigation link from the landing page.
-6. Re-run the research audit whenever fast-moving AI specifications or security guidance materially changes.
+1. Open **Repository → Settings → Pages**.
+2. Under **Build and deployment → Source**, select **GitHub Actions**.
+3. Save the setting.
+4. Re-run or push to `main` to start `Deploy GitHub Pages`.
+5. Confirm `Configure Pages`, artifact upload, and deployment all succeed.
+6. Confirm a Pages deployment exists for the expected URL.
+7. Open the expected URL without repository authentication when the site is intended for public readers.
+8. Check every navigation link from the landing page.
+
+If the account/plan does not allow Pages for a private repository, make the repository public or use a GitHub plan that supports Pages for private repositories.
 
 ## Confidence
 
@@ -75,4 +105,5 @@ Before calling the project fully published:
 **Repository file integrity:** High  
 **External-source currency:** High for sources checked on 2026-09-04  
 **GitHub Pages workflow syntax/model:** High  
-**Public Pages availability:** Not verified; current deployment run failed at configuration
+**Pages configuration:** Not enabled/configured  
+**Public Pages availability:** Not yet verified because no successful Pages deployment exists
