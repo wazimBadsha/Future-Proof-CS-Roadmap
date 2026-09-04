@@ -4,7 +4,15 @@
 >
 > Learn the machine. Build the system. Verify the output. Then learn to orchestrate AI safely.
 
-**Status:** Living research document · **Last reviewed:** 2026-09-02
+**Status:** Living research document · **Last reviewed:** 2026-09-04
+
+---
+
+## Research freshness
+
+The roadmap was re-audited on **4 September 2026** against current primary sources for CS education, developer tooling, MCP, agentic engineering, AI security/governance, evaluation, observability and GitHub Pages. The detailed claim audit and publication status are maintained in [`RESEARCH.md`](RESEARCH.md) and [`VALIDATION.md`](VALIDATION.md).
+
+**Important:** the GitHub Pages site is prepared in `docs/`, but public publication is not claimed until Pages configuration succeeds and an actual deployment is observed.
 
 ---
 
@@ -97,7 +105,7 @@ Rebuild or debug a variant without assistance
 - Debug a memory/performance issue using a profiler.
 - Reproduce a dependency conflict from a clean environment.
 
-**Primary resource:** MIT's 2026 Missing Semester now explicitly includes shell, development tools, debugging/profiling, Git, packaging/shipping, agentic coding and code quality.
+**Primary resource:** MIT's 2026 Missing Semester explicitly includes shell, development tools, debugging/profiling, Git, packaging/shipping, agentic coding and code quality.
 
 ---
 
@@ -717,7 +725,7 @@ Study:
 - Sandbox escape
 - Insecure MCP integrations
 
-The current OWASP GenAI work should be treated as a living security reference rather than a one-time checklist.
+The current OWASP GenAI work should be treated as a living security reference rather than a one-time checklist. OWASP's 2026 work also includes agent-specific guidance and emerging control standards.
 
 For governance and risk management, study NIST AI RMF and its Generative AI Profile.
 
@@ -751,149 +759,111 @@ Observe
 Iterate
 ```
 
-### Skills that become more important
+Human ownership remains mandatory for:
 
-- Reading unfamiliar repositories
-- Writing precise specifications
-- Asking good technical questions
-- Reviewing generated code
-- Debugging causal failures
-- Designing tests
-- Threat modeling
-- Architecture
-- Observability
-- Change management
-- Knowing when **not** to delegate
+- requirements
+- architecture
+- security boundaries
+- permissions
+- acceptance criteria
+- production decisions
+- incident response
+- final verification
 
-### Skills that become less valuable as standalone differentiators
-
-- memorizing framework syntax
-- writing boilerplate from scratch
-- knowing every library API by memory
-- copying common CRUD patterns
-
-They still matter. They simply matter less than **judgment and verification**.
+The objective is **AI-accelerated engineering**, not AI-outsourced engineering judgment.
 
 ---
 
-## Phase 17 — Portfolio and career evidence
+## Phase 17 — Portfolio and career proof
 
-A future-proof portfolio should show **systems you can explain**, not just screenshots.
+Do not build a portfolio of toy CRUD applications only.
 
-### Minimum portfolio set
+Build a progression that demonstrates increasing engineering depth.
 
-1. **Foundational project** — data structures + algorithms + tests
-2. **Systems project** — concurrent or networked system
-3. **Production web/backend project** — auth, database, CI/CD, observability
-4. **Distributed systems project** — queue/event architecture, retries, idempotency
-5. **AI application** — RAG or structured model integration with evaluation
-6. **Agentic system** — tools, permissions, state, approval and failure recovery
-7. **Security case study** — threat model + exploit simulation + mitigation
-8. **Architecture case study** — requirements, alternatives, trade-offs, capacity and failure model
+### Project ladder
 
----
+1. **CLI/data-structure project** — correctness + tests
+2. **HTTP server** — networking + concurrency
+3. **SQL-backed API** — transactions + indexes
+4. **Production service** — Docker + CI/CD + observability
+5. **Distributed worker system** — queues + retries + idempotency
+6. **RAG system** — retrieval + evaluation + security
+7. **Tool-using agent** — permissions + state + verification
+8. **Resilient agent platform** — orchestration + fallback + auditability
 
-# Practical capstone ladder
+For the final project, document:
 
-| Level | Capstone | What it proves |
-|---|---|---|
-| 1 | CLI + data structures | programming fundamentals |
-| 2 | HTTP server | networking + concurrency |
-| 3 | SQL-backed API | data modeling + transactions |
-| 4 | production service | testing + CI/CD + observability |
-| 5 | distributed worker system | queues + idempotency + failure handling |
-| 6 | RAG application | retrieval + evaluation |
-| 7 | tool-using agent | permissions + state + tool execution |
-| 8 | resilient agent platform | evaluation + observability + security + operations |
-
----
-
-# Verification checklist
-
-Before calling yourself "done" with a topic:
-
-- [ ] Can I explain the mental model without notes?
-- [ ] Can I implement a small version?
-- [ ] Can I debug a broken version?
-- [ ] Can I state the important invariants?
-- [ ] Can I estimate performance?
-- [ ] Can I identify security risks?
-- [ ] Can I explain failure modes?
-- [ ] Can I test the edge cases?
-- [ ] Can I operate it in production?
-- [ ] Can I review AI-generated code in this area?
-- [ ] Can I solve a structurally similar problem without AI help?
+- architecture
+- threat model
+- failure model
+- test strategy
+- evaluation methodology
+- observability
+- cost model
+- operational runbook
+- postmortem for at least one induced failure
 
 ---
 
-# Recommended resource families
+## A practical weekly loop
 
-See [`RESOURCES.md`](RESOURCES.md) for the maintained resource/entity registry and [`RESEARCH.md`](RESEARCH.md) for claim validation and red-team notes.
+### Day 1 — Learn
 
-### Core
+Study one concept deeply enough to explain it without notes.
 
-- Harvard CS50x
-- MIT Missing Semester
-- Princeton Algorithms
-- TakeUForward A2Z DSA
-- NeetCode
-- PostgreSQL documentation
-- Linux kernel documentation
-- Docker documentation
-- Kubernetes documentation
+### Day 2 — Implement
 
-### Production engineering
+Build a small version without relying on a framework abstraction.
 
-- OWASP
-- AWS Well-Architected
-- OpenTelemetry
-- CNCF ecosystem
-- Git documentation
+### Day 3 — Break it
 
-### AI engineering
+Introduce failures and edge cases.
 
-- Model Context Protocol
-- OpenAI Agents SDK
-- SWE-bench
-- OWASP GenAI Security Project
-- NIST AI RMF / GenAI Profile
+### Day 4 — Apply it
+
+Use the concept in a real project.
+
+### Day 5 — Use AI
+
+Ask an AI coding tool to solve/review/extend the problem.
+
+### Day 6 — Verify
+
+Compare the AI solution against your own model, tests and failure cases.
+
+### Day 7 — Teach
+
+Write what you learned, including what was wrong in your first mental model.
 
 ---
 
-# How to use this repository
+## Verification checklist
 
-This repository is intentionally a **living roadmap**, not a static "learn these 200 technologies" list.
+Before claiming mastery of a topic:
 
-When adding a new technology or resource, record:
-
-1. **What capability does it teach?**
-2. **What problem does it solve?**
-3. **What should be learned before it?**
-4. **What should be built with it?**
-5. **What are its failure modes?**
-6. **What is the authoritative source?**
-7. **How stable is the information?**
-8. **What claim are we making about it?**
-
-Avoid turning the roadmap into a vendor catalogue. Technologies should appear because they expose an important engineering concept.
+- [ ] I can explain the core model without an AI assistant.
+- [ ] I implemented a minimal version.
+- [ ] I can identify its failure modes.
+- [ ] I wrote tests.
+- [ ] I measured something meaningful.
+- [ ] I used it in a real project.
+- [ ] I reviewed an AI-generated implementation.
+- [ ] I found at least one case where the AI solution was wrong/incomplete.
+- [ ] I documented the trade-offs.
 
 ---
 
 ## Research policy
 
-This project distinguishes:
+This roadmap distinguishes:
 
-- **Fact** — directly supported by an authoritative source.
-- **Interpretation** — reasoned conclusion from multiple facts.
-- **Recommendation** — a curriculum choice made by this roadmap.
-- **Unverified claim** — something that still needs repository/documentation evidence.
+- **Fact** — supported by a primary or high-quality source.
+- **Interpretation** — reasoned synthesis of multiple facts.
+- **Recommendation** — a curriculum/design choice.
+- **Unverified claim** — something that requires implementation-level evidence.
 
-Fast-moving AI topics require periodic re-validation.
-
-See [`RESEARCH.md`](RESEARCH.md) for the current audit.
-
----
+See [`RESEARCH.md`](RESEARCH.md), [`RESOURCES.md`](RESOURCES.md), [`ENTITIES.md`](ENTITIES.md) and [`VALIDATION.md`](VALIDATION.md) for the current evidence registry and audit.
 
 ## License
 
-Unless otherwise noted, the roadmap content in this repository is provided for educational use. Third-party resources remain under their respective licenses.
+This roadmap is intended as a living educational/research document. Preserve attribution when reusing substantial portions.
