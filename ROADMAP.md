@@ -776,3 +776,68 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resources:** [Leslie Lamport's TLA+ learning materials](https://lamport.azurewebsites.net/tla/learning.html), [TLA+ Wiki](https://docs.tlapl.us/), and [Alloy](https://alloytools.org/). Bounded model checking explores only the declared model and bounds; absence of a counterexample is not a universal proof unless the method and scope justify that conclusion.
 
+---
+
+## Stage R — Embedded, edge and resource-constrained systems
+
+**Purpose:** understand software that interacts directly with hardware and operates under strict memory, power, timing, safety and connectivity constraints. This is an elective specialization after core systems foundations, not a prerequisite for every application engineer.
+
+**Prerequisites:** C or Rust fundamentals, computer architecture, operating systems, concurrency and networking basics.
+
+### R1. Hardware and firmware boundary
+- Microcontrollers, SoCs, memory maps and peripheral buses
+- Bootloaders, firmware images and flashing
+- Interrupts, timers, DMA and watchdogs
+- Memory-mapped I/O and volatile access
+- UART, SPI, I²C, USB and CAN concepts
+- Board support packages and hardware abstraction layers
+
+### R2. Real-time and reliability
+- Hard, firm and soft real-time constraints
+- Interrupt latency, jitter and deadline analysis
+- Cooperative versus preemptive scheduling
+- Priority inversion and priority inheritance
+- Static allocation, bounded memory and stack sizing
+- Fault handling, watchdog recovery and safe states
+
+### R3. Embedded security
+- Secure boot and firmware signing
+- Debug-port and physical access risks
+- Key provisioning and hardware-backed secrets
+- Firmware update authenticity, rollback and recovery
+- SBOM, vulnerability response and device lifecycle
+- Physical tampering and side-channel awareness
+
+### R4. Edge and on-device intelligence
+- CPU/NPU/GPU accelerator constraints
+- Quantized model deployment and memory budgeting
+- Sensor preprocessing and streaming inference
+- Intermittent connectivity and offline-first behavior
+- Synchronization, telemetry minimization and privacy
+- Model update, rollback and fleet management
+
+### Labs
+1. Read a microcontroller datasheet and map a peripheral register interface.
+2. Implement a timer/interrupt-driven sensor acquisition loop.
+3. Build a bounded message queue between an interrupt-facing producer and worker task.
+4. Measure latency and jitter under CPU and I/O load.
+5. Deploy a small quantized inference model to an edge target where hardware is available; otherwise document the target's memory/compute budget and validate a host-side simulation.
+
+### Deliverables
+- Firmware repository with reproducible build and flashing instructions.
+- Hardware/software interface diagram.
+- Timing and memory budget with measured evidence.
+- Threat model for boot, update, debug and device identity.
+- Recovery procedure for interrupted or failed firmware updates.
+
+### Measurable exit assessment
+- Explain interrupt, polling and DMA trade-offs.
+- Demonstrate bounded memory and predictable queue behavior.
+- Measure worst observed latency while clearly distinguishing it from a formal worst-case execution-time guarantee.
+- Explain secure boot, signed updates and rollback protection.
+- Describe how intermittent connectivity changes persistence and synchronization design.
+
+**Exit gate:** demonstrate a functioning hardware or simulator-based system, pass fault-injection tests, and submit timing, memory and security evidence.
+
+**Primary resources:** [The Embedded Rust Book](https://docs.rust-embedded.org/book/) and [Embedded Rust Discovery](https://rust-embedded.org/discovery/). Hardware-specific labs require compatible hardware; the theory and simulation tasks remain available without it.
+
