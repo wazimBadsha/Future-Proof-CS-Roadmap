@@ -4,13 +4,13 @@
 >
 > Learn the machine. Build the system. Verify the output. Then learn to orchestrate AI safely.
 
-**Status:** Living research document · **Last reviewed:** 2026-09-04
+**Status:** Living research document · **Last reviewed:** 2026-11-27
 
 ---
 
 ## Research freshness
 
-The roadmap was re-audited on **4 September 2026** against current primary sources for CS education, developer tooling, MCP, agentic engineering, AI security/governance, evaluation, observability and GitHub Pages. The detailed claim audit and publication status are maintained in [`RESEARCH.md`](RESEARCH.md) and [`VALIDATION.md`](VALIDATION.md).
+The roadmap received a curriculum and primary-source refresh on **27 November 2026**. The detailed curriculum now includes dedicated tracks for discrete mathematics, theory of computation, compilers, parallel/GPU computing, foundation-model engineering, data engineering, formal methods, embedded/edge systems and accessibility. See [ROADMAP.md](ROADMAP.md), [RESEARCH.md](RESEARCH.md), [RESOURCES.md](RESOURCES.md) and [VALIDATION.md](VALIDATION.md) for scope and evidence. The detailed claim audit and publication status are maintained in [`RESEARCH.md`](RESEARCH.md) and [`VALIDATION.md`](VALIDATION.md).
 
 **Important:** the GitHub Pages site is prepared in `docs/`, but public publication is not claimed until Pages configuration succeeds and an actual deployment is observed.
 
@@ -81,6 +81,26 @@ Rebuild or debug a variant without assistance
 | 15 | AI security & governance | Can manage prompt injection, data exposure, agency and supply-chain risk |
 | 16 | AI-native engineering practice | Can use coding agents while retaining ownership and verification |
 | 17 | Portfolio & career | Can demonstrate systems thinking with production-grade evidence |
+
+---
+
+## Advanced CS and engineering specializations
+
+The 18 core phases are complemented by dedicated specializations in the detailed curriculum. These are not all mandatory for every role; follow their prerequisites and choose depth based on your target domain.
+
+| Track | Focus |
+|---|---|
+| K — Discrete mathematics | Logic, proofs, relations, counting, probability, graphs and recurrences |
+| L — Theory of computation | Automata, grammars, computability, reductions and complexity |
+| M — Compilers and languages | Parsing, type systems, intermediate representations, runtimes and VMs |
+| N — Parallel and GPU computing | Concurrency, memory hierarchy, SIMD, OpenMP, CUDA and multi-GPU systems |
+| O — Foundation-model engineering | Transformers, post-training, PEFT, quantization, multimodal systems and inference serving |
+| P — Data engineering | Batch/stream processing, data contracts, lakehouse and ML data governance |
+| Q — Formal methods | Invariants, temporal properties, TLA+, Alloy and model checking |
+| R — Embedded and edge systems | Firmware, real-time constraints, device security and on-device inference |
+| S — Human-centered engineering | Accessibility, usability, localization, privacy and engineering ethics |
+
+Each specialization defines prerequisites, labs, deliverables and measurable exit gates in [ROADMAP.md](ROADMAP.md).
 
 ---
 
@@ -183,7 +203,7 @@ Learn the relationship:
 
 ### Practice
 
-Use a curated problem set rather than trying to solve thousands of disconnected questions. TUF's A2Z sheet currently exposes **474 problems** across the major DSA families.
+Use a curated problem set rather than trying to solve thousands of disconnected questions. Use TUF's A2Z sheet as a mutable curated practice list; problem counts and ordering can change.
 
 Then do transfer problems where the surface changes but the underlying pattern remains.
 
