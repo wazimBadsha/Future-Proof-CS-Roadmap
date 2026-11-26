@@ -713,3 +713,66 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resources:** [Apache Kafka documentation](https://kafka.apache.org/documentation/), [Apache Flink documentation](https://flink.apache.org/), [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/), and [dbt documentation](https://docs.getdbt.com/). Select implementations based on workload and operational constraints rather than treating a tool as the architecture.
 
+---
+
+## Stage Q — Formal methods, model checking and correctness engineering
+
+**Purpose:** use precise models to discover design errors before implementation or deployment, especially in concurrent, distributed, security-sensitive and safety-critical systems.
+
+**Prerequisites:** Stage K discrete mathematics and logic, Stage C systems/distributed-systems concepts, and basic software testing.
+
+### Q1. Program correctness
+- Preconditions, postconditions and invariants
+- Hoare triples and weakest preconditions
+- Loop invariants and termination arguments
+- Refinement from specification to implementation
+- Design by contract and executable assertions
+- Limits of tests versus proofs
+
+### Q2. State-machine modeling
+- State variables, initial states and transitions
+- Safety properties: something bad never happens
+- Liveness properties: something good eventually happens
+- Invariants, temporal properties and fairness assumptions
+- State-space explosion, symmetry and abstraction
+- Counterexample interpretation
+
+### Q3. Model checking and specification
+- TLA+ / PlusCal for concurrent and distributed algorithms
+- TLC exploration of bounded state spaces
+- Alloy relational modeling and bounded instance exploration
+- Protocol and API state-machine specifications
+- Refinement mapping and implementation correspondence
+
+### Q4. Verification in the engineering lifecycle
+- Property-based and metamorphic testing
+- Model-based test generation
+- Static analysis and abstract interpretation concepts
+- Fuzzing and symbolic execution concepts
+- Proof-carrying assumptions and trusted computing base
+- Risk-based use of formal methods
+
+### Labs
+1. Specify a bounded producer/consumer queue and check safety and liveness properties.
+2. Model a payment idempotency workflow with retries, duplicate delivery and crash/restart.
+3. Model a leader-election or lock protocol and inspect counterexamples.
+4. Use Alloy to model tenant isolation or access-control relationships.
+5. Translate a formal invariant into runtime assertions and property-based tests.
+
+### Deliverables
+- At least two executable formal specifications.
+- A counterexample report explaining one discovered design flaw.
+- A refinement note connecting one specification to implementation tests.
+- A short statement of modeling assumptions and bounded-analysis limitations.
+
+### Measurable exit assessment
+- State a safety invariant and a liveness property for a workflow.
+- Explain what a model checker explored and what its bounds do not prove.
+- Diagnose a counterexample trace and identify the violated assumption or invariant.
+- Distinguish model correctness from implementation correctness.
+- Choose proportionate verification techniques for the risk and cost of a feature.
+
+**Exit gate:** produce a checked model for a concurrent or distributed workflow, preserve its assumptions, and demonstrate that a deliberately broken variant yields a useful counterexample.
+
+**Primary resources:** [Leslie Lamport's TLA+ learning materials](https://lamport.azurewebsites.net/tla/learning.html), [TLA+ Wiki](https://docs.tlapl.us/), and [Alloy](https://alloytools.org/). Bounded model checking explores only the declared model and bounds; absence of a counterexample is not a universal proof unless the method and scope justify that conclusion.
+
