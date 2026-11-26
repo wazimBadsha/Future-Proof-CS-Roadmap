@@ -13,7 +13,7 @@ This document separates externally verifiable facts from curriculum recommendati
 | CS fundamentals remain useful when AI generates code | **Recommendation** | The roadmap's design premise, not a universal empirical law. |
 | MIT 6.042J covers proof methods, discrete structures and probability | **Verified** | Official MIT OCW course description and materials support the coverage. |
 | MIT 18.404J covers automata, computability and complexity | **Verified** | Official syllabus lists formal languages, decidability, reductions and complexity topics. |
-| OpenMP API 6.1 is the latest listed OpenMP specification on this snapshot | **Verified at review time** | OpenMP's official specifications page lists API 6.1 (November 2026); version and errata can change. |
+| OpenMP API 6.0 is the latest published specification listed on this snapshot | **Verified** | The official specifications page lists API 6.0 as the current specification and Technical Report 15 as a July 2026 public-comment draft of API 6.1. A draft is not a published normative specification. |
 | CUDA is a GPU programming model with explicit device execution concepts | **Verified** | NVIDIA's official CUDA Programming Guide describes the programming model, GPU execution and advanced multi-GPU topics. |
 | PEFT reduces the number of trainable parameters by adapting a pretrained model | **Verified** | Hugging Face Transformers PEFT documentation describes adapters and supported training workflows. |
 | TRL supports SFT, DPO, GRPO and reward-model workflows | **Verified at review time** | Official TRL documentation lists these trainers; APIs and maturity labels evolve. |
@@ -45,7 +45,7 @@ This document separates externally verifiable facts from curriculum recommendati
 
 ### Parallel and GPU computing
 
-- The [OpenMP specifications page](https://www.openmp.org/specifications/) lists OpenMP API 6.1 and its November 2026 release. The [specification overview](https://www.openmp.org/spec-html/6.1/openmpch1.html) describes the C/C++/Fortran API and execution/memory model.
+- The [OpenMP specifications page](https://www.openmp.org/specifications/) lists OpenMP API 6.0 as the latest published specification and Technical Report 15 as a July 2026 public-comment draft of API 6.1. Do not describe the 6.1 draft as a released specification. Check the official page for subsequent status changes before implementation.
 - NVIDIA's [CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html) is the primary guide for CUDA execution and GPU programming. GPU labs in the roadmap are hardware-dependent; CPU concurrency and measurement remain required.
 - The [MPI Forum](https://www.mpi-forum.org/docs/) is the canonical source for message-passing specifications.
 
