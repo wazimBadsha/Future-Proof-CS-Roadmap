@@ -551,3 +551,91 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resources:** [OpenMP specifications](https://www.openmp.org/specifications/) (OpenMP API 6.1 was released in November 2026), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), and [MPI Forum documents](https://www.mpi-forum.org/docs/). GPU labs are hardware-dependent; CPU concurrency and measurement labs remain required.
 
+---
+
+## Stage O — Foundation-model engineering and production inference
+
+**Purpose:** move beyond prompt-only application development. Understand model internals, data and post-training choices, efficient inference, multimodal interfaces, deployment constraints and production evaluation.
+
+**Prerequisites:** Stage G ML foundations, probability/statistics, Python, neural-network/transformer basics, data pipelines and GPU concepts from Stage N (or equivalent conceptual knowledge).
+
+### O1. Transformer and model internals
+- Tokenization, vocabularies and token/byte boundaries
+- Embedding layers, positional representations and attention
+- Transformer blocks, normalization, residual paths and feed-forward layers
+- Decoder-only, encoder-only and encoder-decoder model families
+- Pretraining objectives and next-token prediction
+- Context length, attention cost and KV-cache behavior
+- Sampling: temperature, top-k, top-p and stopping criteria
+- Numerical precision, logits, calibration and model limitations
+
+### O2. Data and post-training
+- Dataset provenance, licensing, consent and privacy
+- Data cleaning, deduplication, filtering and contamination checks
+- Train/validation/test separation and leakage prevention
+- Supervised fine-tuning (SFT)
+- Preference data, reward modeling and direct preference optimization
+- Reinforcement-learning post-training concepts, including policy/reward trade-offs
+- Parameter-efficient fine-tuning: LoRA and QLoRA
+- Distillation and synthetic-data quality controls
+- Checkpointing, reproducibility and experiment tracking
+
+### O3. Quantization and inference optimization
+- FP32, BF16, FP16, FP8, INT8 and lower-bit representations
+- Weight-only versus activation-aware quantization
+- Quantization error, calibration and quality regression
+- KV-cache sizing, paging and cache reuse
+- Continuous batching, prefill/decode separation and speculative decoding
+- Kernel fusion, compilation and memory bandwidth
+- Tensor/pipeline/data parallel inference
+- CPU, GPU and edge-device trade-offs
+- Benchmarking time-to-first-token, inter-token latency, throughput and cost
+
+### O4. Multimodal systems
+- Image encoders, patching and visual tokenization
+- Audio input/output, speech recognition and synthesis pipelines
+- Video frame sampling and temporal reasoning
+- Text-image/audio/video alignment and modality-specific evaluation
+- Structured spatial/action outputs where applicable
+- Payload limits, preprocessing, latency and privacy boundaries
+- Cross-modal prompt injection and untrusted media content
+
+### O5. Production model serving
+- Model artifact and tokenizer versioning
+- Serving APIs, streaming and request validation
+- Admission control, batching and overload behavior
+- GPU memory planning and capacity management
+- Autoscaling, warm pools and model loading time
+- Health checks, readiness and graceful shutdown
+- Tenant isolation, rate limits and abuse controls
+- Canary rollout, rollback and model/configuration provenance
+- Telemetry for queueing, TTFT, TPOT, throughput, cache use, errors and cost
+
+### Labs
+1. Inspect a small open model's tokenizer and trace one input through embeddings, attention and logits.
+2. Fine-tune a small permitted model with SFT or LoRA; document dataset provenance and evaluation split.
+3. Compare a baseline and quantized model on task quality, memory use, latency and throughput.
+4. Serve a model behind an authenticated API with bounded queues, rate limits and cancellation.
+5. Build a multimodal evaluation set with explicit consent/licensing and failure categories.
+6. Run load tests and identify the bottleneck using serving metrics.
+
+### Deliverables
+- Model card and dataset card with limitations, provenance and intended use.
+- Reproducible post-training experiment and evaluation report.
+- Quantization comparison with quality/performance trade-offs.
+- Deployment architecture, threat model, capacity estimate and rollback plan.
+- Production dashboard or trace sample with sensitive content excluded or redacted.
+
+### Measurable exit assessment
+- Explain the forward pass and the role of attention and KV caching.
+- Distinguish pretraining, SFT, preference optimization, reinforcement learning and distillation.
+- Explain why quantization can reduce memory while changing model quality.
+- Compare TTFT, inter-token latency, throughput and cost per successful task.
+- Identify data leakage, benchmark contamination and licensing risks.
+- Design a serving system with explicit admission, isolation, overload and rollback behavior.
+- Explain how multimodal inputs expand privacy and prompt-injection attack surfaces.
+
+**Exit gate:** deploy a small model-backed service, publish a reproducible evaluation report, and demonstrate a safe rollback after a deliberately introduced model/configuration regression.
+
+**Primary resources:** [Hugging Face Transformers PEFT](https://huggingface.co/docs/transformers/peft), [Hugging Face TRL](https://huggingface.co/docs/trl/index), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), [TensorRT-LLM documentation](https://docs.nvidia.com/tensorrt-llm/), and [vLLM production metrics](https://docs.vllm.ai/en/latest/usage/metrics/). These tool-specific resources illustrate implementations; concepts should be learned independently of any one serving stack.
+
