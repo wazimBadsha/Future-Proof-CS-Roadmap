@@ -549,7 +549,7 @@ This turns "I know X" into inspectable evidence.
 
 **Exit gate:** submit a reproducible benchmark, demonstrate race-free behavior under stress, and explain one optimization whose benefit is supported by measurements rather than assumption.
 
-**Primary resources:** [OpenMP specifications](https://www.openmp.org/specifications/) (OpenMP API 6.1 was released in November 2026), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), and [MPI Forum documents](https://www.mpi-forum.org/docs/). GPU labs are hardware-dependent; CPU concurrency and measurement labs remain required.
+**Primary resources:** [OpenMP specifications](https://www.openmp.org/specifications/) (OpenMP API 6.0 is the latest published specification on 27 November 2026; Technical Report 15 is a public-comment draft for API 6.1 dated July 2026), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), and [MPI Forum documents](https://www.mpi-forum.org/docs/). GPU labs are hardware-dependent; CPU concurrency and measurement labs remain required.
 
 ---
 
