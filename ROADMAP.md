@@ -909,3 +909,56 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resource:** [W3C Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/). WCAG is a technical standard; conformance claims require evaluation against the applicable success criteria and scope.
 
+---
+
+## Progression contracts — prerequisites, evidence and exit gates
+
+Use these contracts to prevent topic checklists from being mistaken for demonstrated capability. A learner may study stages in parallel when they already have the prerequisites, but should retain the evidence requirements.
+
+| Stage | Prerequisites | Required evidence | Exit gate |
+|---|---|---|---|
+| A — Foundations | Basic computer literacy | C/Python/production-language exercises, CLI tool, test suite | Explain memory/process basics and build a modular tested program |
+| B — Algorithmic reasoning | A; K is recommended | Implemented structures, complexity notes, proof/invariant notebook, transfer problems | Solve and explain unfamiliar problems with correctness and complexity arguments |
+| C — Systems | A and B foundations | Mini shell or process tool, network trace, SQL-backed service, distributed worker capstone | Diagnose process, network, storage and distributed failure scenarios |
+| D — Software engineering | A–C | Requirements, architecture note, tests, CI pipeline, deployment and incident report | Ship a maintainable service with rollback and operational evidence |
+| E — Security | A and C foundations | Threat model, security tests, dependency inventory, remediation record | Demonstrate least privilege, trust boundaries and tested mitigations |
+| F — Cloud/SRE | C and D | Infrastructure definitions, SLO, dashboards, game-day and recovery evidence | Operate a service through a failure and explain its reliability/cost trade-offs |
+| G — ML/LLM engineering | K basics, linear algebra, probability, Python | Reproducible model experiment, dataset split, evaluation harness and model-serving prototype | Explain model behavior and measure model quality separately from system quality |
+| H — Agents | G, D and E | Tool-using workflow, state persistence, approval gates, adversarial tests and traces | Resume safely after failure and prevent unauthorized or duplicate side effects |
+| I — AI-native engineering | A–H selectively, plus code review/testing discipline | Task specification, reviewed plan/diff, deterministic test evidence and AI-use notes | Demonstrate that AI acceleration does not remove human ownership or verification |
+| J — Portfolio | Relevant preceding stages | Capstone repository, architecture, threat/failure models, tests, telemetry, runbook and postmortem | Defend design choices and reproduce the project's critical verification steps |
+| K — Discrete mathematics | Algebra and basic programming | Proof notebook, graph planner, probability analysis | Pass proof, graph, recurrence and probability assessment |
+| L — Theory of computation | K, programming and algorithm analysis | DFA simulator, lexer/parser, reduction notebook | Construct automata and explain decidability/complexity boundaries |
+| M — Compilers and languages | A, K and L | Interpreter, type checker, bytecode VM or compiler prototype | Trace source through parsing, semantic analysis, IR and execution |
+| N — Parallel/GPU computing | A, C1, memory and algorithm analysis | Reproducible benchmark, race-free worker pool, GPU evidence where available | Explain races, speedup limits, memory bottlenecks and measured performance |
+| O — Foundation-model engineering | G, N concepts and data pipelines | Model/dataset cards, post-training experiment, quantization and serving report | Deploy, evaluate and safely roll back a model-backed service |
+| P — Data engineering | SQL, C and distributed-systems basics | Replayable pipeline, data contracts, quality dashboard and lineage | Recover correctly from duplicates, late data, schema changes and backfills |
+| Q — Formal methods | K, C and testing | Checked model, counterexample report and implementation correspondence | Model a concurrent workflow and explain verification bounds |
+| R — Embedded/edge systems | C, computer architecture and C/Rust | Firmware/simulator, timing and memory budgets, security and recovery plan | Demonstrate bounded behavior and fault recovery under stated constraints |
+| S — Human-centered engineering | Software engineering foundations | Accessibility audit, usability findings, localization and privacy map | Verify critical workflows with keyboard/assistive technology and document residual risks |
+
+### Universal assessment rubric
+
+For every stage, assess the learner on observable work rather than topic familiarity:
+
+1. **Explain:** describe the model and its assumptions without relying on generated answers.
+2. **Implement:** build a minimal working artifact or formal model.
+3. **Test:** include normal, boundary, adversarial and failure cases appropriate to the stage.
+4. **Measure:** collect relevant correctness, performance, quality or usability evidence.
+5. **Transfer:** solve a changed problem without seeing the original solution.
+6. **Defend:** explain trade-offs, limitations, security implications and what the evidence does not prove.
+
+A stage is complete only when its exit gate and required evidence are met. Watching lectures, completing tutorials or obtaining AI-generated code alone does not satisfy the gate.
+
+### Suggested sequencing
+
+- **Core sequence:** A → B → C → D → E/F → G → H → I → J.
+- **Mathematical/theoretical depth:** K → L → M; feed the results back into B, C and G.
+- **Performance specialization:** N → O, with N also supporting systems and HPC work.
+- **Data specialization:** P alongside C, F and G.
+- **Correctness specialization:** Q alongside C, D, E and H.
+- **Device/edge specialization:** R after C and N foundations.
+- **Human-centered practice:** S throughout every stage, with a formal review before J.
+
+These are capability dependencies, not a rigid semester plan. Prior experience can satisfy a prerequisite only when equivalent evidence is available.
+
