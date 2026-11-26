@@ -292,3 +292,64 @@ Each capstone should contain:
 - AI usage disclosure where relevant
 
 This turns "I know X" into inspectable evidence.
+
+---
+
+## Stage K — Discrete mathematics and mathematical reasoning
+
+**Purpose:** build the mathematical language used by algorithms, databases, cryptography, compilers, distributed systems, machine learning and formal verification.
+
+**Prerequisites:** basic algebra, arithmetic, and the ability to read simple program logic. Learners who are rusty should review algebra and functions first.
+
+### K1. Logic and proof
+- Propositions, predicates, quantifiers and logical equivalence
+- Implication, contrapositive, contradiction and proof by cases
+- Direct proof, induction, strong induction and structural induction
+- Invariants and loop-correctness arguments
+- Soundness, completeness and counterexamples
+
+### K2. Sets, functions and relations
+- Set operations, Cartesian products and power sets
+- Functions, injectivity, surjectivity and bijections
+- Equivalence relations and partitions
+- Partial orders, lattices and dependency relations
+- Cardinality and countability at an introductory level
+
+### K3. Counting and discrete probability
+- Sum and product rules
+- Permutations, combinations and binomial coefficients
+- Pigeonhole principle and inclusion–exclusion
+- Conditional probability, independence and Bayes' rule
+- Random variables, expectation and variance
+- Concentration intuition and randomized algorithm analysis
+
+### K4. Graphs, trees and recurrences
+- Directed/undirected, weighted and bipartite graphs
+- Paths, cycles, connectivity, trees and spanning trees
+- Graph representations and traversal invariants
+- Recurrence relations and asymptotic solutions
+- Modular arithmetic and elementary number theory
+
+### K5. Labs
+1. Write proofs for binary search, loop invariants and a recursive tree algorithm.
+2. Model a dependency scheduler as a directed acyclic graph and detect cycles.
+3. Calculate collision probabilities for a hash space and explain the assumptions.
+4. Implement a recurrence solver and compare its growth with measured runtime.
+5. Build a small property-based test suite from algebraic laws.
+
+### Deliverables
+- A proof notebook containing at least eight short proofs and counterexamples.
+- A graph-based dependency planner with cycle detection and topological ordering.
+- A short written analysis of a randomized algorithm's expected behavior.
+
+### Measurable exit assessment
+- Translate English requirements into predicates and invariants.
+- Produce a valid induction proof and identify an invalid proof step.
+- Choose and justify a graph representation and traversal.
+- Derive a simple recurrence and explain its asymptotic growth.
+- Solve conditional-probability questions without confusing independence and mutual exclusivity.
+
+**Exit gate:** pass a closed-notes assessment, submit the proof notebook, and explain one proof and one probability model orally.
+
+**Primary resource:** [MIT 6.042J Mathematics for Computer Science](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/). Its official course description covers proofs, sets, functions, relations, graphs, state machines, modular arithmetic, counting and discrete probability.
+
