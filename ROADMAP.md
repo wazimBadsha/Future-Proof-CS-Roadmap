@@ -353,3 +353,63 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resource:** [MIT 6.042J Mathematics for Computer Science](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/). Its official course description covers proofs, sets, functions, relations, graphs, state machines, modular arithmetic, counting and discrete probability.
 
+---
+
+## Stage L — Theory of computation and formal models
+
+**Purpose:** understand the limits of computation, the structure of formal languages, and why some problems cannot be solved efficiently—or at all—by algorithms.
+
+**Prerequisites:** Stage K (logic, proof techniques, sets, functions and graphs), basic programming and algorithm analysis.
+
+### L1. Finite-state computation
+- Alphabets, strings, languages and language operations
+- Deterministic and nondeterministic finite automata
+- Regular expressions and regular languages
+- Closure properties and pumping lemma intuition
+- Practical connection: lexical analysis, protocol parsers and input validators
+
+### L2. Grammars and pushdown computation
+- Context-free grammars and parse trees
+- Pushdown automata
+- Ambiguity, precedence and associativity
+- Normal forms and grammar transformations
+- Practical connection: parser design and language tooling
+
+### L3. Computability
+- Turing machines and equivalent computation models
+- Church–Turing thesis as a model thesis
+- Decidable, recognizable and undecidable languages
+- Halting problem and reductions
+- Practical connection: limits of static analysis and automated program reasoning
+
+### L4. Complexity theory
+- Time and space complexity classes
+- P, NP, co-NP and polynomial-time reductions
+- NP-completeness and proof structure
+- Hierarchy intuition and tractability
+- Randomized and interactive computation at survey depth
+- Practical connection: recognizing intractable optimization and choosing approximation, heuristics or constraints
+
+### Labs
+1. Implement a DFA simulator and test accepted/rejected strings.
+2. Write a lexer for a small expression language using token definitions.
+3. Implement a recursive-descent parser for arithmetic expressions.
+4. Reduce a small decision problem to a known problem and explain the reduction.
+5. Classify examples as decidable, recognizable or not known to be decidable, with justification.
+
+### Deliverables
+- A finite automaton simulator with a test corpus.
+- A lexer/parser for a documented mini-language.
+- A short complexity notebook containing reductions and tractability analyses.
+
+### Measurable exit assessment
+- Construct a DFA for a specified regular language.
+- Explain why a grammar is ambiguous and remove ambiguity for a bounded expression grammar.
+- Distinguish decidability from practical tractability.
+- Explain the halting problem and the role of reduction without claiming that every difficult problem is undecidable.
+- Identify when a problem is a poor fit for exact polynomial-time optimization.
+
+**Exit gate:** submit the parser, pass a language/automata exercise, and defend one reduction or complexity argument.
+
+**Primary resource:** [MIT 18.404J Theory of Computation](https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/). The official syllabus lists automata, regular and context-free languages, decidability, reductions, time/space complexity, completeness and probabilistic computation.
+
