@@ -2,7 +2,7 @@
 
 This registry names the major entities used by the roadmap and points readers to canonical sources. URLs are intentionally primary-source links.
 
-**Last verified:** 2026-09-04
+**Last reviewed:** 2026-11-27
 
 ## Foundations
 
@@ -62,3 +62,50 @@ This registry names the major entities used by the roadmap and points readers to
 4. For fast-moving AI infrastructure, record the review date.
 5. If an implementation claim matters, inspect the actual implementation rather than inferring behavior from the entity's name or marketing description.
 6. Treat newly announced standards as evolving until their normative status and implementation guidance are clear.
+
+
+## Mathematics and theory of computation
+
+| Entity | Scope | Canonical URL |
+|---|---|---|
+| MIT 6.042J Mathematics for Computer Science | Discrete mathematics, proofs, graphs, counting and probability | https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/ |
+| MIT 18.404J Theory of Computation | Automata, formal languages, computability and complexity | https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/ |
+
+## Compilers, languages and formal methods
+
+| Entity | Scope | Canonical URL |
+|---|---|---|
+| LLVM Kaleidoscope | Compiler construction tutorial | https://llvm.org/docs/tutorial/ |
+| Crafting Interpreters | Language implementation, interpreters and virtual machines | https://craftinginterpreters.com/ |
+| TLA+ learning materials | Formal specification and model checking | https://lamport.azurewebsites.net/tla/learning.html |
+| TLA+ Wiki | Tooling and community learning resources | https://docs.tlapl.us/ |
+| Alloy | Relational modeling and bounded analysis | https://alloytools.org/ |
+
+## Parallel, GPU and embedded systems
+
+| Entity | Scope | Canonical URL |
+|---|---|---|
+| OpenMP API 6.0 / Technical Report 15 | API 6.0 latest published spec; TR15 is a July 2026 public-comment draft of API 6.1 | https://www.openmp.org/specifications/ |
+| NVIDIA CUDA Programming Guide | GPU programming and performance | https://docs.nvidia.com/cuda/cuda-programming-guide/index.html |
+| MPI Forum | Message-passing interface standards | https://www.mpi-forum.org/docs/ |
+| Embedded Rust Book | Bare-metal and resource-constrained systems | https://docs.rust-embedded.org/book/ |
+
+## Data engineering
+
+| Entity | Scope | Canonical URL |
+|---|---|---|
+| Apache Kafka | Event streaming | https://kafka.apache.org/documentation/ |
+| Apache Flink | Stateful stream processing | https://flink.apache.org/ |
+| Apache Iceberg | Open table format and analytical data management | https://iceberg.apache.org/docs/latest/ |
+| dbt | SQL transformation, testing and documentation | https://docs.getdbt.com/ |
+
+## Model training, inference and accessibility
+
+| Entity | Scope | Canonical URL |
+|---|---|---|
+| Hugging Face Transformers PEFT | Adapter and parameter-efficient fine-tuning | https://huggingface.co/docs/transformers/peft |
+| Hugging Face TRL | SFT, DPO, GRPO and post-training workflows | https://huggingface.co/docs/trl/index |
+| NVIDIA TensorRT-LLM | Optimized LLM inference and quantization | https://docs.nvidia.com/tensorrt-llm/ |
+| vLLM production metrics | Model-serving observability | https://docs.vllm.ai/en/latest/usage/metrics/ |
+| W3C WCAG 2.2 | Web accessibility standard | https://www.w3.org/TR/WCAG22/ |
+

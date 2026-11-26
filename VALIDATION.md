@@ -1,109 +1,135 @@
 # Repository Validation Report
 
-**Validation date:** 2026-09-04  
-**Repository:** https://github.com/wazimBadsha/Future-Proof-CS-Roadmap
+**Validation snapshot:** 2026-11-27  
+**Repository:** https://github.com/wazimBadSha/Future-Proof-CS-Roadmap  
+**Working branch:** `roadmap/complete-curriculum-2026-11`
 
 ## Result
 
-The repository is structurally complete as a research/documentation project. The current research refresh is complete, and the GitHub Pages workflow is present and current. The public GitHub Pages publication gate is **not complete** because GitHub Pages is not enabled/configured for this repository.
+The curriculum and static site have been expanded on the working branch. A dependency-free structural/accessibility-basics validator is now part of CI and its first observed run passed. This report does **not** claim that the changes are merged to `main`, that every external URL has been exhaustively crawled, that WCAG conformance has been certified, or that GitHub Pages is live.
 
 ## Repository inventory
 
-| Path | Purpose | Status |
+| Path | Purpose | Current status |
 |---|---|---|
-| `README.md` | Main roadmap and project entry point | Present |
-| `ROADMAP.md` | Detailed learning progression and capstones | Present |
-| `RESEARCH.md` | Claim/evidence/red-team audit | Refreshed |
-| `RESOURCES.md` | Entity and primary-resource registry | Refreshed |
-| `ENTITIES.md` | Canonical entity/source map | Present |
-| `SOCIAL.md` | Publishing drafts | Present |
-| `VALIDATION.md` | Repository/publication release gate | Refreshed |
-| `docs/index.html` | Human-facing static website | Present |
-| `.github/workflows/pages.yml` | GitHub Pages deployment | Present and refreshed |
+| `README.md` | Core roadmap entry point and advanced-track overview | Updated for 2026-11-27 |
+| `ROADMAP.md` | Core stages A–J, advanced tracks K–S, prerequisites, labs and exit gates | Expanded |
+| `RESEARCH.md` | Claim/evidence/red-team audit | Refreshed for 2026-11-27 |
+| `RESOURCES.md` | Primary resource registry | Expanded and dated |
+| `ENTITIES.md` | Canonical entity/source map | Expanded and dated |
+| `SOCIAL.md` | Publishing drafts | Present; content refresh still recommended |
+| `VALIDATION.md` | Repository and publication release gate | This report |
+| `docs/index.html` | Responsive, accessible-basics static landing page | Rebuilt |
+| `scripts/validate_site.py` | Dependency-free HTML structure and local-anchor checks | Added |
+| `.github/workflows/validate.yml` | CI validation on pushes and pull requests | Added |
+| `.github/workflows/pages.yml` | GitHub Pages deployment | Existing workflow retained |
+
+## Curriculum scope
+
+The detailed curriculum now contains:
+
+- **Core stages A–J:** foundations, algorithmic reasoning, systems, software engineering, security, cloud/SRE, ML/LLM, agents, AI-native engineering and portfolio.
+- **Advanced stages K–S:** discrete mathematics; theory of computation; compilers/languages; parallel/GPU computing; foundation-model engineering; data engineering; formal methods; embedded/edge systems; human-centered engineering.
+- A progression contract mapping each stage to prerequisites, required evidence and an exit gate.
+- A universal assessment rubric: explain, implement, test, measure, transfer and defend.
+
+The stages are a curriculum design, not an accredited degree or a guarantee of mastery. Hardware-dependent labs identify alternatives; model-checking and benchmark evidence are bounded by their assumptions and workload.
 
 ## Research validation
 
-### Confirmed current material
+The 2026-11-27 research snapshot adds or refreshes primary references for:
 
-- MIT Missing Semester 2026 includes shell, development tools, debugging/profiling, Git, packaging/shipping, agentic coding and code quality.
-- MCP has a 2026-07-28 release; the roadmap treats protocol capabilities as versioned rather than permanent.
-- OWASP published 2026 LLM/GenAI guidance and separate agentic-application guidance; the roadmap also tracks the emerging Agent Control Standard work as evolving rather than settled.
-- NIST AI RMF remains a core governance reference, while NIST continues developing additional AI risk-management profiles in 2026.
-- Current agent SDK guidance covers tools, orchestration/handoffs, guardrails, state/session concepts, MCP integration and tracing.
-- OpenTelemetry's current GenAI work supports model/tool/workflow observability.
-- GitHub Pages supports custom workflows using Pages configuration, artifact upload and deployment actions.
+- MIT 6.042J discrete mathematics and MIT 18.404J theory of computation.
+- LLVM Kaleidoscope and Crafting Interpreters.
+- OpenMP API 6.0 (latest published specification on the review date) and Technical Report 15 (July 2026 public-comment draft for API 6.1), NVIDIA CUDA and MPI.
+- Hugging Face PEFT and TRL, NVIDIA TensorRT-LLM and vLLM production metrics.
+- Kafka, Flink, Iceberg and dbt.
+- TLA+, Alloy, Embedded Rust and W3C WCAG 2.2.
+- OWASP GenAI LLM Top 10:2026, OWASP Agentic Applications:2026, MCP 2026-07-28, NIST AI RMF/Profile and OpenTelemetry GenAI conventions.
 
-### Deliberate corrections
+See `RESEARCH.md` for dated claims, dispositions and evidence limitations. Versioned specs, SDK APIs and metrics must be checked against the version actually used by a project.
 
-The roadmap does not claim that:
+## Automated site validation
 
-- MCP itself guarantees privacy or security.
-- A product is fully local merely because its UI/runtime is local.
-- Cloud inference automatically falls back to local inference.
-- An agent is only an LLM plus a prompt.
-- A benchmark score proves production reliability.
-- A Pages workflow file proves that a website is publicly live.
+Workflow: [Validate roadmap site](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913387799)
 
-These are implementation or governance claims that require evidence from the specific system.
+**Observed result:** success  
+**Commit:** `b59ddef3d34bc6fe0b442a18b2b86cd4bb968b43`  
+**Job:** `validate` — success  
+**Python:** 3.12.16  
+**Validator output:** `SITE VALIDATION PASSED: 13 unique ids, 30 links`
+
+Checks currently include:
+
+- HTML file exists and parses with Python's standard-library HTML parser.
+- One language declaration, one main landmark and one title.
+- Meta description and viewport metadata.
+- Skip link to the main landmark.
+- Duplicate IDs and broken in-page anchors.
+- HTTPS-only external links (or mailto).
+- Local relative-link targets.
+- Image alt attributes.
+- `target=_blank` links must include `noopener noreferrer`.
+
+**Scope limitation:** this is a structural/accessibility-basics check. It does not perform a network crawl of external URLs, browser rendering, screen-reader testing, full WCAG 2.2 conformance evaluation, link-content suitability review or JavaScript runtime testing. Those remain separate release checks.
+
+## Static site review
+
+The landing page uses semantic landmarks, responsive grids, keyboard-visible focus styles, a skip link, reduced-motion support and responsive overflow for its resource table. The full curriculum remains in Markdown so the static landing page does not duplicate every lesson.
 
 ## GitHub Pages validation
 
-The static site is intentionally dependency-free HTML/CSS/JavaScript under `docs/`.
-
-Expected Pages URL:
+Expected URL:
 
 `https://wazimbadsha.github.io/Future-Proof-CS-Roadmap/`
 
-### Workflow existence
+The repository metadata currently reports **public** visibility. This differs from the private state recorded in the September report.
 
-The repository contains `.github/workflows/pages.yml` with:
+The latest previously observed Pages workflow is [run 21](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/33884679089), from 4 September 2026. It failed at `Configure Pages`; artifact upload and deployment were skipped. That failure predates the current public visibility state.
 
-- `actions/checkout@v6`
-- `actions/configure-pages@v6`
-- `actions/upload-pages-artifact@v5`
-- `actions/deploy-pages@v5`
-- `pages: write`
-- `id-token: write`
-- `github-pages` deployment environment
+A live deployment is **not yet verified** in this audit. The Pages settings endpoint was not exposed by the connected repository actions, and an attempt to open the expected Pages URL through the available web reader did not return a usable page response. Neither observation proves the Pages site is disabled or enabled. A fresh workflow run and deployment record are required.
 
-### Actual deployment validation
+### Release gate
 
-The latest observed Pages workflow (`run 20`, commit `da58f264a68b83e463e4e66b02ad09790387baee`) started successfully but failed at **`Configure Pages`**. The runner reached checkout and loaded all four Pages actions; artifact upload and deployment were skipped.
+1. Open [Repository Settings → Pages](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/settings/pages).
+2. Confirm **Build and deployment → Source = GitHub Actions**.
+3. Trigger or rerun the Pages workflow after the branch is merged to `main`.
+4. Confirm Configure Pages, artifact upload and Deploy to GitHub Pages all succeed.
+5. Confirm a GitHub Pages deployment record exists and its URL is the expected URL.
+6. Open the site in a normal unauthenticated browser.
+7. Check the navigation, core phases, advanced tracks, resource links and mobile layout.
+8. Only then mark the public site as live.
 
-The exact failure returned by `actions/configure-pages` was:
+## Figma design
 
-> `Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions ... Error: Not Found`
+The existing editable Figma design has been updated with:
 
-This is direct evidence that the problem is **Pages configuration/enablement**, not missing HTML and not a broken deployment artifact.
+- Nine advanced-track cards (K–S).
+- A reusable Advanced Track Card component with text properties.
+- Dark-theme primitive and semantic variables.
+- Updated subtitle and full-frame height so the previous 18-phase content and new tracks are not clipped.
 
-The repository is currently private. GitHub documents that Pages is available for private repositories only on supported paid plans, while public repositories are supported on GitHub Free. A private repository can still have a publicly accessible Pages site when the plan permits it.
+The design is a separate Figma artifact, not a repository-controlled file. It must be visually reviewed against the final published website after Pages deployment.
 
-## Why the workflow cannot finish enablement by itself
+Figma file: https://www.figma.com/design/jrcJif6fJp3nhcwSrq8pyi/Future-Proof-CS-Roadmap
 
-`actions/configure-pages` can attempt to enable Pages with its `enablement` input, but GitHub's current action contract requires a token other than the default `GITHUB_TOKEN` for that enablement operation, with suitable administration/Pages permissions. The current workflow correctly uses the default `GITHUB_TOKEN` for the normal deployment path; it cannot use the repository's Pages-admin setting through that token.
+## Remaining release risks
 
-Therefore the workflow can **deploy to an already-enabled Pages site**, but it cannot reliably bootstrap the repository's Pages setting from the current token configuration.
-
-## Release gate
-
-Before calling the project fully published:
-
-1. Open **Repository → Settings → Pages**.
-2. Under **Build and deployment → Source**, select **GitHub Actions**.
-3. Save the setting.
-4. Re-run or push to `main` to start `Deploy GitHub Pages`.
-5. Confirm `Configure Pages`, artifact upload, and deployment all succeed.
-6. Confirm a Pages deployment exists for the expected URL.
-7. Open the expected URL without repository authentication when the site is intended for public readers.
-8. Check every navigation link from the landing page.
-
-If the account/plan does not allow Pages for a private repository, make the repository public or use a GitHub plan that supports Pages for private repositories.
+- The curriculum is broad by design; role-specific depth and time estimates are not yet prescribed.
+- External link reachability is not fully automated; links can move or content can change.
+- Accessibility basics are checked statically, not certified against WCAG.
+- Figma and HTML are updated separately and can drift.
+- GitHub Pages publication remains unverified pending a fresh successful deployment.
 
 ## Confidence
 
-**Documentation/research structure:** High  
-**Repository file integrity:** High  
-**External-source currency:** High for sources checked on 2026-09-04  
-**GitHub Pages workflow syntax/model:** High  
-**Pages configuration:** Not enabled/configured  
-**Public Pages availability:** Not yet verified because no successful Pages deployment exists
+| Area | Assessment |
+|---|---|
+| Curriculum structure and progression contracts | High |
+| Dated primary-source research snapshot | High for claims explicitly listed in `RESEARCH.md`; not a permanent freshness guarantee |
+| Static HTML structural checks | Verified by GitHub Actions run 45913387799 |
+| Full browser and assistive-technology validation | Not run |
+| External-link network crawl | Not run |
+| Figma structure and track-card insertion | Verified by metadata read-back and screenshot |
+| Pages deployment | Not verified |
+| Merge to main | Pending |

@@ -292,3 +292,673 @@ Each capstone should contain:
 - AI usage disclosure where relevant
 
 This turns "I know X" into inspectable evidence.
+
+---
+
+## Stage K — Discrete mathematics and mathematical reasoning
+
+**Purpose:** build the mathematical language used by algorithms, databases, cryptography, compilers, distributed systems, machine learning and formal verification.
+
+**Prerequisites:** basic algebra, arithmetic, and the ability to read simple program logic. Learners who are rusty should review algebra and functions first.
+
+### K1. Logic and proof
+- Propositions, predicates, quantifiers and logical equivalence
+- Implication, contrapositive, contradiction and proof by cases
+- Direct proof, induction, strong induction and structural induction
+- Invariants and loop-correctness arguments
+- Soundness, completeness and counterexamples
+
+### K2. Sets, functions and relations
+- Set operations, Cartesian products and power sets
+- Functions, injectivity, surjectivity and bijections
+- Equivalence relations and partitions
+- Partial orders, lattices and dependency relations
+- Cardinality and countability at an introductory level
+
+### K3. Counting and discrete probability
+- Sum and product rules
+- Permutations, combinations and binomial coefficients
+- Pigeonhole principle and inclusion–exclusion
+- Conditional probability, independence and Bayes' rule
+- Random variables, expectation and variance
+- Concentration intuition and randomized algorithm analysis
+
+### K4. Graphs, trees and recurrences
+- Directed/undirected, weighted and bipartite graphs
+- Paths, cycles, connectivity, trees and spanning trees
+- Graph representations and traversal invariants
+- Recurrence relations and asymptotic solutions
+- Modular arithmetic and elementary number theory
+
+### K5. Labs
+1. Write proofs for binary search, loop invariants and a recursive tree algorithm.
+2. Model a dependency scheduler as a directed acyclic graph and detect cycles.
+3. Calculate collision probabilities for a hash space and explain the assumptions.
+4. Implement a recurrence solver and compare its growth with measured runtime.
+5. Build a small property-based test suite from algebraic laws.
+
+### Deliverables
+- A proof notebook containing at least eight short proofs and counterexamples.
+- A graph-based dependency planner with cycle detection and topological ordering.
+- A short written analysis of a randomized algorithm's expected behavior.
+
+### Measurable exit assessment
+- Translate English requirements into predicates and invariants.
+- Produce a valid induction proof and identify an invalid proof step.
+- Choose and justify a graph representation and traversal.
+- Derive a simple recurrence and explain its asymptotic growth.
+- Solve conditional-probability questions without confusing independence and mutual exclusivity.
+
+**Exit gate:** pass a closed-notes assessment, submit the proof notebook, and explain one proof and one probability model orally.
+
+**Primary resource:** [MIT 6.042J Mathematics for Computer Science](https://ocw.mit.edu/courses/6-042j-mathematics-for-computer-science-spring-2015/). Its official course description covers proofs, sets, functions, relations, graphs, state machines, modular arithmetic, counting and discrete probability.
+
+---
+
+## Stage L — Theory of computation and formal models
+
+**Purpose:** understand the limits of computation, the structure of formal languages, and why some problems cannot be solved efficiently—or at all—by algorithms.
+
+**Prerequisites:** Stage K (logic, proof techniques, sets, functions and graphs), basic programming and algorithm analysis.
+
+### L1. Finite-state computation
+- Alphabets, strings, languages and language operations
+- Deterministic and nondeterministic finite automata
+- Regular expressions and regular languages
+- Closure properties and pumping lemma intuition
+- Practical connection: lexical analysis, protocol parsers and input validators
+
+### L2. Grammars and pushdown computation
+- Context-free grammars and parse trees
+- Pushdown automata
+- Ambiguity, precedence and associativity
+- Normal forms and grammar transformations
+- Practical connection: parser design and language tooling
+
+### L3. Computability
+- Turing machines and equivalent computation models
+- Church–Turing thesis as a model thesis
+- Decidable, recognizable and undecidable languages
+- Halting problem and reductions
+- Practical connection: limits of static analysis and automated program reasoning
+
+### L4. Complexity theory
+- Time and space complexity classes
+- P, NP, co-NP and polynomial-time reductions
+- NP-completeness and proof structure
+- Hierarchy intuition and tractability
+- Randomized and interactive computation at survey depth
+- Practical connection: recognizing intractable optimization and choosing approximation, heuristics or constraints
+
+### Labs
+1. Implement a DFA simulator and test accepted/rejected strings.
+2. Write a lexer for a small expression language using token definitions.
+3. Implement a recursive-descent parser for arithmetic expressions.
+4. Reduce a small decision problem to a known problem and explain the reduction.
+5. Classify examples as decidable, recognizable or not known to be decidable, with justification.
+
+### Deliverables
+- A finite automaton simulator with a test corpus.
+- A lexer/parser for a documented mini-language.
+- A short complexity notebook containing reductions and tractability analyses.
+
+### Measurable exit assessment
+- Construct a DFA for a specified regular language.
+- Explain why a grammar is ambiguous and remove ambiguity for a bounded expression grammar.
+- Distinguish decidability from practical tractability.
+- Explain the halting problem and the role of reduction without claiming that every difficult problem is undecidable.
+- Identify when a problem is a poor fit for exact polynomial-time optimization.
+
+**Exit gate:** submit the parser, pass a language/automata exercise, and defend one reduction or complexity argument.
+
+**Primary resource:** [MIT 18.404J Theory of Computation](https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/). The official syllabus lists automata, regular and context-free languages, decidability, reductions, time/space complexity, completeness and probabilistic computation.
+
+---
+
+## Stage M — Compilers, interpreters and programming-language implementation
+
+**Purpose:** understand how source code becomes executable behavior, and how language design choices affect correctness, performance, safety and developer experience.
+
+**Prerequisites:** Stage A programming foundations, Stage K proofs/induction and Stage L grammars/automata. Familiarity with C, C++ or Rust is useful but not mandatory for the first interpreter.
+
+### M1. Language design
+- Syntax versus semantics
+- Static and dynamic typing; nominal and structural typing
+- Type inference, generics and polymorphism
+- Scope, closures, evaluation order and mutability
+- Memory ownership, garbage collection and lifetimes
+- Error models, exceptions and algebraic data types
+
+### M2. Front ends
+- Lexing and token streams
+- Parsing: recursive descent, Pratt parsing and parser generators
+- Abstract syntax trees and source locations
+- Name resolution, symbol tables and scopes
+- Type checking and semantic analysis
+- Diagnostics and error recovery
+
+### M3. Intermediate representations and optimization
+- AST versus intermediate representation (IR)
+- Control-flow graphs and basic blocks
+- Static single assignment (SSA) intuition
+- Data-flow analysis and liveness
+- Constant folding, dead-code elimination and inlining
+- Optimization correctness and debug information
+
+### M4. Back ends and execution
+- Bytecode interpreters and virtual machines
+- Instruction selection and register allocation concepts
+- Calling conventions, stack frames and linking
+- JIT versus ahead-of-time compilation
+- Runtime systems, garbage collectors and deoptimization
+- WebAssembly and portable execution models
+
+### Labs
+1. Implement a tokenizer and Pratt parser for arithmetic and boolean expressions.
+2. Add lexical scopes, variables, functions and closures to a tree-walk interpreter.
+3. Add a static type checker for a deliberately small type system.
+4. Compile the language to bytecode and implement a stack VM.
+5. Add one semantics-preserving optimization and prove it with differential/property tests.
+
+### Deliverables
+- A documented mini-language with grammar and semantics.
+- An interpreter plus test suite.
+- A bytecode VM or LLVM-based compiler prototype.
+- A short design note explaining type, memory and error-model choices.
+
+### Measurable exit assessment
+- Explain the difference between parsing, semantic analysis, IR lowering and code generation.
+- Trace a source expression through tokens, AST, IR and execution.
+- Identify a scope/type error before runtime.
+- Explain why an optimization preserves observable behavior under stated assumptions.
+- Diagnose a stack-frame, calling-convention or runtime-lifetime bug.
+
+**Exit gate:** implement the language pipeline end-to-end and pass tests for precedence, scoping, type errors, runtime errors and optimization equivalence.
+
+**Primary resources:** [LLVM Kaleidoscope tutorial](https://llvm.org/docs/tutorial/) for a progressive language implementation; [Crafting Interpreters](https://craftinginterpreters.com/) for interpreters and runtime design. These are complementary practical references, not substitutes for compiler theory.
+
+---
+
+## Stage N — Parallel, concurrent and GPU computing
+
+**Purpose:** reason about performance when work executes across cores, vector lanes, accelerators and multiple devices. Parallelism is not automatically faster: synchronization, memory movement, contention and workload shape determine the result.
+
+**Prerequisites:** programming, data structures, operating-system processes/threads, memory hierarchy and basic algorithm analysis.
+
+### N1. Concurrency and parallelism
+- Concurrency versus parallel execution
+- Shared-memory and message-passing models
+- Data races, race freedom and happens-before
+- Locks, atomics, barriers, condition variables and semaphores
+- Deadlock, livelock, starvation and false sharing
+- Work decomposition, task scheduling and work stealing
+- Amdahl's law, Gustafson's law and scalability limits
+
+### N2. CPU architecture and vectorization
+- Cache hierarchy, cache lines and locality
+- SIMD/vector instructions and alignment
+- Branch prediction and instruction-level parallelism
+- NUMA awareness and memory bandwidth
+- Profiling, flame graphs and hardware counters
+- Roofline-model intuition: compute-bound versus bandwidth-bound
+
+### N3. Parallel programming models
+- Thread pools, futures and structured concurrency
+- OpenMP work-sharing, tasks and synchronization
+- Message passing and MPI concepts
+- Map/reduce and distributed data-parallel patterns
+- Cancellation, bounded queues and backpressure
+- Deterministic testing of concurrent behavior
+
+### N4. GPU programming
+- CPU/GPU execution and host/device memory
+- Kernels, grids, blocks, warps and threads
+- Memory coalescing, shared memory and occupancy
+- Synchronization, atomics and race detection
+- Transfers, batching and launch overhead
+- Multi-GPU communication and collective operations
+- GPU profiling and numerical precision trade-offs
+
+### N5. AI/HPC connection
+- Tensor operations and matrix multiplication
+- Mixed precision and accumulation behavior
+- Data parallelism, tensor parallelism and pipeline parallelism
+- Gradient synchronization and checkpointing
+- KV-cache memory, batching and serving throughput
+- Benchmarking throughput, latency, utilization and cost
+
+### Labs
+1. Implement a parallel reduction and compare it with a serial reference.
+2. Reproduce a race condition, then remove it using a documented synchronization strategy.
+3. Benchmark CPU vectorization and memory-layout alternatives.
+4. Implement a GPU vector-add or matrix-multiplication kernel when compatible hardware is available; otherwise use a simulator or inspect a provided kernel.
+5. Profile an inference workload and identify whether it is compute-, memory-, transfer- or scheduling-bound.
+
+### Deliverables
+- A serial-versus-parallel benchmark with reproducible workload and hardware notes.
+- A race-free concurrent worker pool with cancellation and bounded backpressure.
+- A GPU kernel report with correctness tests and profiler evidence, or a clearly labeled hardware-unavailable analysis.
+
+### Measurable exit assessment
+- Distinguish concurrency, parallelism and asynchronous I/O.
+- Explain a data race using happens-before reasoning.
+- Estimate the theoretical speedup limit for a workload using Amdahl's law.
+- Identify cache false sharing or memory-bandwidth bottlenecks from measurements.
+- Explain GPU occupancy, memory coalescing and transfer overhead at a conceptual level.
+- Report performance with warm-up, repeated trials, variance and correctness checks.
+
+**Exit gate:** submit a reproducible benchmark, demonstrate race-free behavior under stress, and explain one optimization whose benefit is supported by measurements rather than assumption.
+
+**Primary resources:** [OpenMP specifications](https://www.openmp.org/specifications/) (OpenMP API 6.0 is the latest published specification on 27 November 2026; Technical Report 15 is a public-comment draft for API 6.1 dated July 2026), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), and [MPI Forum documents](https://www.mpi-forum.org/docs/). GPU labs are hardware-dependent; CPU concurrency and measurement labs remain required.
+
+---
+
+## Stage O — Foundation-model engineering and production inference
+
+**Purpose:** move beyond prompt-only application development. Understand model internals, data and post-training choices, efficient inference, multimodal interfaces, deployment constraints and production evaluation.
+
+**Prerequisites:** Stage G ML foundations, probability/statistics, Python, neural-network/transformer basics, data pipelines and GPU concepts from Stage N (or equivalent conceptual knowledge).
+
+### O1. Transformer and model internals
+- Tokenization, vocabularies and token/byte boundaries
+- Embedding layers, positional representations and attention
+- Transformer blocks, normalization, residual paths and feed-forward layers
+- Decoder-only, encoder-only and encoder-decoder model families
+- Pretraining objectives and next-token prediction
+- Context length, attention cost and KV-cache behavior
+- Sampling: temperature, top-k, top-p and stopping criteria
+- Numerical precision, logits, calibration and model limitations
+
+### O2. Data and post-training
+- Dataset provenance, licensing, consent and privacy
+- Data cleaning, deduplication, filtering and contamination checks
+- Train/validation/test separation and leakage prevention
+- Supervised fine-tuning (SFT)
+- Preference data, reward modeling and direct preference optimization
+- Reinforcement-learning post-training concepts, including policy/reward trade-offs
+- Parameter-efficient fine-tuning: LoRA and QLoRA
+- Distillation and synthetic-data quality controls
+- Checkpointing, reproducibility and experiment tracking
+
+### O3. Quantization and inference optimization
+- FP32, BF16, FP16, FP8, INT8 and lower-bit representations
+- Weight-only versus activation-aware quantization
+- Quantization error, calibration and quality regression
+- KV-cache sizing, paging and cache reuse
+- Continuous batching, prefill/decode separation and speculative decoding
+- Kernel fusion, compilation and memory bandwidth
+- Tensor/pipeline/data parallel inference
+- CPU, GPU and edge-device trade-offs
+- Benchmarking time-to-first-token, inter-token latency, throughput and cost
+
+### O4. Multimodal systems
+- Image encoders, patching and visual tokenization
+- Audio input/output, speech recognition and synthesis pipelines
+- Video frame sampling and temporal reasoning
+- Text-image/audio/video alignment and modality-specific evaluation
+- Structured spatial/action outputs where applicable
+- Payload limits, preprocessing, latency and privacy boundaries
+- Cross-modal prompt injection and untrusted media content
+
+### O5. Production model serving
+- Model artifact and tokenizer versioning
+- Serving APIs, streaming and request validation
+- Admission control, batching and overload behavior
+- GPU memory planning and capacity management
+- Autoscaling, warm pools and model loading time
+- Health checks, readiness and graceful shutdown
+- Tenant isolation, rate limits and abuse controls
+- Canary rollout, rollback and model/configuration provenance
+- Telemetry for queueing, TTFT, TPOT, throughput, cache use, errors and cost
+
+### Labs
+1. Inspect a small open model's tokenizer and trace one input through embeddings, attention and logits.
+2. Fine-tune a small permitted model with SFT or LoRA; document dataset provenance and evaluation split.
+3. Compare a baseline and quantized model on task quality, memory use, latency and throughput.
+4. Serve a model behind an authenticated API with bounded queues, rate limits and cancellation.
+5. Build a multimodal evaluation set with explicit consent/licensing and failure categories.
+6. Run load tests and identify the bottleneck using serving metrics.
+
+### Deliverables
+- Model card and dataset card with limitations, provenance and intended use.
+- Reproducible post-training experiment and evaluation report.
+- Quantization comparison with quality/performance trade-offs.
+- Deployment architecture, threat model, capacity estimate and rollback plan.
+- Production dashboard or trace sample with sensitive content excluded or redacted.
+
+### Measurable exit assessment
+- Explain the forward pass and the role of attention and KV caching.
+- Distinguish pretraining, SFT, preference optimization, reinforcement learning and distillation.
+- Explain why quantization can reduce memory while changing model quality.
+- Compare TTFT, inter-token latency, throughput and cost per successful task.
+- Identify data leakage, benchmark contamination and licensing risks.
+- Design a serving system with explicit admission, isolation, overload and rollback behavior.
+- Explain how multimodal inputs expand privacy and prompt-injection attack surfaces.
+
+**Exit gate:** deploy a small model-backed service, publish a reproducible evaluation report, and demonstrate a safe rollback after a deliberately introduced model/configuration regression.
+
+**Primary resources:** [Hugging Face Transformers PEFT](https://huggingface.co/docs/transformers/peft), [Hugging Face TRL](https://huggingface.co/docs/trl/index), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), [TensorRT-LLM documentation](https://docs.nvidia.com/tensorrt-llm/), and [vLLM production metrics](https://docs.vllm.ai/en/latest/usage/metrics/). These tool-specific resources illustrate implementations; concepts should be learned independently of any one serving stack.
+
+---
+
+## Stage P — Data engineering and analytical systems
+
+**Purpose:** design trustworthy data systems that support operational software, analytics, machine learning and AI products.
+
+**Prerequisites:** SQL and database fundamentals, networking, distributed-systems basics, and programming with files/APIs.
+
+### P1. Data modeling and storage
+- Conceptual, logical and physical data models
+- OLTP versus OLAP workload characteristics
+- Dimensional modeling, facts, dimensions and slowly changing dimensions
+- Columnar versus row-oriented storage
+- Partitioning, clustering, indexes and compression
+- Schema evolution and backward/forward compatibility
+
+### P2. Batch and streaming
+- Batch processing, incremental processing and replay
+- Event time versus processing time
+- Watermarks, late data and windowing
+- Delivery semantics, deduplication and idempotent consumers
+- Stream-table duality and materialized views
+- CDC, log compaction and event retention
+
+### P3. Pipelines and orchestration
+- DAG-based workflow orchestration
+- Dependency management, retries, backfills and resumability
+- Data contracts and schema registries
+- Data quality checks and quarantine paths
+- Lineage, provenance and reproducible transformations
+- SLAs/SLOs for freshness and completeness
+
+### P4. Lakehouse and analytical platforms
+- Object storage and open table formats
+- Metadata/catalog services
+- ACID table operations and concurrent writers
+- Query engines and workload isolation
+- Cost/performance trade-offs in compute/storage separation
+- Governance, access controls and retention
+
+### P5. ML/AI data readiness
+- Dataset versioning and lineage
+- Label quality, sampling bias and class imbalance
+- Train/validation/test leakage prevention
+- Feature stores and online/offline consistency
+- Embedding indexes and refresh strategies
+- Evaluation dataset governance and deletion propagation
+
+### Labs
+1. Build a batch pipeline with idempotent incremental loads and a replayable backfill.
+2. Consume an event stream with late arrivals, duplicate delivery and schema evolution.
+3. Add data contracts, quality gates, lineage and failure quarantine.
+4. Build an analytical model and compare query plans for representative workloads.
+5. Create a versioned ML dataset and prove that evaluation data does not leak into training.
+
+### Deliverables
+- Data architecture diagram and workload assumptions.
+- Reproducible batch or streaming pipeline with tests.
+- Data contract and schema-evolution policy.
+- Data quality dashboard with freshness, completeness and validity indicators.
+- Dataset lineage and deletion/retention policy.
+
+### Measurable exit assessment
+- Select an appropriate storage/layout for OLTP, analytics and event workloads.
+- Explain event time, processing time, watermarks and late-arriving data.
+- Design replay and deduplication without assuming exactly-once delivery across arbitrary external systems.
+- Detect schema drift and prevent invalid data from silently reaching downstream consumers.
+- Demonstrate lineage from source event to analytical/model output.
+- Explain how privacy deletion, retention and access policy propagate through derived datasets and indexes.
+
+**Exit gate:** operate a pipeline through duplicate events, late data, schema change and backfill; reconcile source and destination counts and document recovery behavior.
+
+**Primary resources:** [Apache Kafka documentation](https://kafka.apache.org/documentation/), [Apache Flink documentation](https://flink.apache.org/), [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/), and [dbt documentation](https://docs.getdbt.com/). Select implementations based on workload and operational constraints rather than treating a tool as the architecture.
+
+---
+
+## Stage Q — Formal methods, model checking and correctness engineering
+
+**Purpose:** use precise models to discover design errors before implementation or deployment, especially in concurrent, distributed, security-sensitive and safety-critical systems.
+
+**Prerequisites:** Stage K discrete mathematics and logic, Stage C systems/distributed-systems concepts, and basic software testing.
+
+### Q1. Program correctness
+- Preconditions, postconditions and invariants
+- Hoare triples and weakest preconditions
+- Loop invariants and termination arguments
+- Refinement from specification to implementation
+- Design by contract and executable assertions
+- Limits of tests versus proofs
+
+### Q2. State-machine modeling
+- State variables, initial states and transitions
+- Safety properties: something bad never happens
+- Liveness properties: something good eventually happens
+- Invariants, temporal properties and fairness assumptions
+- State-space explosion, symmetry and abstraction
+- Counterexample interpretation
+
+### Q3. Model checking and specification
+- TLA+ / PlusCal for concurrent and distributed algorithms
+- TLC exploration of bounded state spaces
+- Alloy relational modeling and bounded instance exploration
+- Protocol and API state-machine specifications
+- Refinement mapping and implementation correspondence
+
+### Q4. Verification in the engineering lifecycle
+- Property-based and metamorphic testing
+- Model-based test generation
+- Static analysis and abstract interpretation concepts
+- Fuzzing and symbolic execution concepts
+- Proof-carrying assumptions and trusted computing base
+- Risk-based use of formal methods
+
+### Labs
+1. Specify a bounded producer/consumer queue and check safety and liveness properties.
+2. Model a payment idempotency workflow with retries, duplicate delivery and crash/restart.
+3. Model a leader-election or lock protocol and inspect counterexamples.
+4. Use Alloy to model tenant isolation or access-control relationships.
+5. Translate a formal invariant into runtime assertions and property-based tests.
+
+### Deliverables
+- At least two executable formal specifications.
+- A counterexample report explaining one discovered design flaw.
+- A refinement note connecting one specification to implementation tests.
+- A short statement of modeling assumptions and bounded-analysis limitations.
+
+### Measurable exit assessment
+- State a safety invariant and a liveness property for a workflow.
+- Explain what a model checker explored and what its bounds do not prove.
+- Diagnose a counterexample trace and identify the violated assumption or invariant.
+- Distinguish model correctness from implementation correctness.
+- Choose proportionate verification techniques for the risk and cost of a feature.
+
+**Exit gate:** produce a checked model for a concurrent or distributed workflow, preserve its assumptions, and demonstrate that a deliberately broken variant yields a useful counterexample.
+
+**Primary resources:** [Leslie Lamport's TLA+ learning materials](https://lamport.azurewebsites.net/tla/learning.html), [TLA+ Wiki](https://docs.tlapl.us/), and [Alloy](https://alloytools.org/). Bounded model checking explores only the declared model and bounds; absence of a counterexample is not a universal proof unless the method and scope justify that conclusion.
+
+---
+
+## Stage R — Embedded, edge and resource-constrained systems
+
+**Purpose:** understand software that interacts directly with hardware and operates under strict memory, power, timing, safety and connectivity constraints. This is an elective specialization after core systems foundations, not a prerequisite for every application engineer.
+
+**Prerequisites:** C or Rust fundamentals, computer architecture, operating systems, concurrency and networking basics.
+
+### R1. Hardware and firmware boundary
+- Microcontrollers, SoCs, memory maps and peripheral buses
+- Bootloaders, firmware images and flashing
+- Interrupts, timers, DMA and watchdogs
+- Memory-mapped I/O and volatile access
+- UART, SPI, I²C, USB and CAN concepts
+- Board support packages and hardware abstraction layers
+
+### R2. Real-time and reliability
+- Hard, firm and soft real-time constraints
+- Interrupt latency, jitter and deadline analysis
+- Cooperative versus preemptive scheduling
+- Priority inversion and priority inheritance
+- Static allocation, bounded memory and stack sizing
+- Fault handling, watchdog recovery and safe states
+
+### R3. Embedded security
+- Secure boot and firmware signing
+- Debug-port and physical access risks
+- Key provisioning and hardware-backed secrets
+- Firmware update authenticity, rollback and recovery
+- SBOM, vulnerability response and device lifecycle
+- Physical tampering and side-channel awareness
+
+### R4. Edge and on-device intelligence
+- CPU/NPU/GPU accelerator constraints
+- Quantized model deployment and memory budgeting
+- Sensor preprocessing and streaming inference
+- Intermittent connectivity and offline-first behavior
+- Synchronization, telemetry minimization and privacy
+- Model update, rollback and fleet management
+
+### Labs
+1. Read a microcontroller datasheet and map a peripheral register interface.
+2. Implement a timer/interrupt-driven sensor acquisition loop.
+3. Build a bounded message queue between an interrupt-facing producer and worker task.
+4. Measure latency and jitter under CPU and I/O load.
+5. Deploy a small quantized inference model to an edge target where hardware is available; otherwise document the target's memory/compute budget and validate a host-side simulation.
+
+### Deliverables
+- Firmware repository with reproducible build and flashing instructions.
+- Hardware/software interface diagram.
+- Timing and memory budget with measured evidence.
+- Threat model for boot, update, debug and device identity.
+- Recovery procedure for interrupted or failed firmware updates.
+
+### Measurable exit assessment
+- Explain interrupt, polling and DMA trade-offs.
+- Demonstrate bounded memory and predictable queue behavior.
+- Measure worst observed latency while clearly distinguishing it from a formal worst-case execution-time guarantee.
+- Explain secure boot, signed updates and rollback protection.
+- Describe how intermittent connectivity changes persistence and synchronization design.
+
+**Exit gate:** demonstrate a functioning hardware or simulator-based system, pass fault-injection tests, and submit timing, memory and security evidence.
+
+**Primary resources:** [The Embedded Rust Book](https://docs.rust-embedded.org/book/) and [Embedded Rust Discovery](https://rust-embedded.org/discovery/). Hardware-specific labs require compatible hardware; the theory and simulation tasks remain available without it.
+
+---
+
+## Stage S — Human-centered software, accessibility and engineering ethics
+
+**Purpose:** build software that is usable, accessible, understandable and responsible for the people affected by it. Technical correctness alone does not establish product quality.
+
+**Prerequisites:** basic programming and software engineering; this stage should be revisited throughout the roadmap rather than treated as a one-time gate.
+
+### S1. Product and interaction foundations
+- User needs, jobs-to-be-done and task analysis
+- Requirements discovery and assumption testing
+- Information architecture and navigation
+- Interaction states, feedback, errors and recovery
+- Progressive disclosure and cognitive load
+- Usability testing and qualitative evidence
+
+### S2. Accessibility engineering
+- Semantic HTML and native platform controls
+- Keyboard access and visible focus
+- Screen-reader semantics and accessible names
+- Focus order, dialogs and dynamic updates
+- Color contrast, zoom, reflow and reduced motion
+- Forms, validation and error identification
+- WCAG conformance levels and evaluation limitations
+
+### S3. Inclusive and global software
+- Localization versus translation
+- Internationalization, Unicode and bidirectional text
+- Date, time, number, currency and measurement formats
+- Low-bandwidth and assistive-technology constraints
+- Device diversity and responsive behavior
+- Privacy-aware analytics and consent
+
+### S4. Ethics and societal impact
+- Data minimization, consent and purpose limitation
+- Bias, representational harms and disparate impact
+- Explainability and contestability appropriate to context
+- Human oversight and appeal paths
+- Accessibility, safety and misuse risk
+- Environmental and compute-cost awareness
+- Responsible disclosure and professional accountability
+
+### Labs
+1. Audit a real workflow using keyboard-only navigation and a screen reader.
+2. Fix semantic, focus, contrast and form-error issues in a small application.
+3. Localize a workflow for a second locale, including date/time and bidirectional text.
+4. Run a moderated usability test and separate observations from interpretation.
+5. Create a data-flow map identifying collection purpose, retention and deletion paths.
+
+### Deliverables
+- Accessibility audit with reproducible issues and verified fixes.
+- User journey and usability findings.
+- Localization test matrix.
+- Privacy/data-flow map and retention policy.
+- Decision record for one ethical or accessibility trade-off.
+
+### Measurable exit assessment
+- Navigate the complete critical workflow without a pointer.
+- Identify inaccessible names, roles, states and focus transitions.
+- Explain the difference between automated accessibility checks and human evaluation.
+- Demonstrate correct locale-aware formatting and bidirectional layout.
+- Trace personal data from collection to deletion and identify downstream copies.
+- Explain whose needs or risks are not represented by the available evidence.
+
+**Exit gate:** complete a keyboard and assistive-technology review of a critical flow, resolve high-impact findings, and document residual limitations honestly.
+
+**Primary resource:** [W3C Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/). WCAG is a technical standard; conformance claims require evaluation against the applicable success criteria and scope.
+
+---
+
+## Progression contracts — prerequisites, evidence and exit gates
+
+Use these contracts to prevent topic checklists from being mistaken for demonstrated capability. A learner may study stages in parallel when they already have the prerequisites, but should retain the evidence requirements.
+
+| Stage | Prerequisites | Required evidence | Exit gate |
+|---|---|---|---|
+| A — Foundations | Basic computer literacy | C/Python/production-language exercises, CLI tool, test suite | Explain memory/process basics and build a modular tested program |
+| B — Algorithmic reasoning | A; K is recommended | Implemented structures, complexity notes, proof/invariant notebook, transfer problems | Solve and explain unfamiliar problems with correctness and complexity arguments |
+| C — Systems | A and B foundations | Mini shell or process tool, network trace, SQL-backed service, distributed worker capstone | Diagnose process, network, storage and distributed failure scenarios |
+| D — Software engineering | A–C | Requirements, architecture note, tests, CI pipeline, deployment and incident report | Ship a maintainable service with rollback and operational evidence |
+| E — Security | A and C foundations | Threat model, security tests, dependency inventory, remediation record | Demonstrate least privilege, trust boundaries and tested mitigations |
+| F — Cloud/SRE | C and D | Infrastructure definitions, SLO, dashboards, game-day and recovery evidence | Operate a service through a failure and explain its reliability/cost trade-offs |
+| G — ML/LLM engineering | K basics, linear algebra, probability, Python | Reproducible model experiment, dataset split, evaluation harness and model-serving prototype | Explain model behavior and measure model quality separately from system quality |
+| H — Agents | G, D and E | Tool-using workflow, state persistence, approval gates, adversarial tests and traces | Resume safely after failure and prevent unauthorized or duplicate side effects |
+| I — AI-native engineering | A–H selectively, plus code review/testing discipline | Task specification, reviewed plan/diff, deterministic test evidence and AI-use notes | Demonstrate that AI acceleration does not remove human ownership or verification |
+| J — Portfolio | Relevant preceding stages | Capstone repository, architecture, threat/failure models, tests, telemetry, runbook and postmortem | Defend design choices and reproduce the project's critical verification steps |
+| K — Discrete mathematics | Algebra and basic programming | Proof notebook, graph planner, probability analysis | Pass proof, graph, recurrence and probability assessment |
+| L — Theory of computation | K, programming and algorithm analysis | DFA simulator, lexer/parser, reduction notebook | Construct automata and explain decidability/complexity boundaries |
+| M — Compilers and languages | A, K and L | Interpreter, type checker, bytecode VM or compiler prototype | Trace source through parsing, semantic analysis, IR and execution |
+| N — Parallel/GPU computing | A, C1, memory and algorithm analysis | Reproducible benchmark, race-free worker pool, GPU evidence where available | Explain races, speedup limits, memory bottlenecks and measured performance |
+| O — Foundation-model engineering | G, N concepts and data pipelines | Model/dataset cards, post-training experiment, quantization and serving report | Deploy, evaluate and safely roll back a model-backed service |
+| P — Data engineering | SQL, C and distributed-systems basics | Replayable pipeline, data contracts, quality dashboard and lineage | Recover correctly from duplicates, late data, schema changes and backfills |
+| Q — Formal methods | K, C and testing | Checked model, counterexample report and implementation correspondence | Model a concurrent workflow and explain verification bounds |
+| R — Embedded/edge systems | C, computer architecture and C/Rust | Firmware/simulator, timing and memory budgets, security and recovery plan | Demonstrate bounded behavior and fault recovery under stated constraints |
+| S — Human-centered engineering | Software engineering foundations | Accessibility audit, usability findings, localization and privacy map | Verify critical workflows with keyboard/assistive technology and document residual risks |
+
+### Universal assessment rubric
+
+For every stage, assess the learner on observable work rather than topic familiarity:
+
+1. **Explain:** describe the model and its assumptions without relying on generated answers.
+2. **Implement:** build a minimal working artifact or formal model.
+3. **Test:** include normal, boundary, adversarial and failure cases appropriate to the stage.
+4. **Measure:** collect relevant correctness, performance, quality or usability evidence.
+5. **Transfer:** solve a changed problem without seeing the original solution.
+6. **Defend:** explain trade-offs, limitations, security implications and what the evidence does not prove.
+
+A stage is complete only when its exit gate and required evidence are met. Watching lectures, completing tutorials or obtaining AI-generated code alone does not satisfy the gate.
+
+### Suggested sequencing
+
+- **Core sequence:** A → B → C → D → E/F → G → H → I → J.
+- **Mathematical/theoretical depth:** K → L → M; feed the results back into B, C and G.
+- **Performance specialization:** N → O, with N also supporting systems and HPC work.
+- **Data specialization:** P alongside C, F and G.
+- **Correctness specialization:** Q alongside C, D, E and H.
+- **Device/edge specialization:** R after C and N foundations.
+- **Human-centered practice:** S throughout every stage, with a formal review before J.
+
+These are capability dependencies, not a rigid semester plan. Prior experience can satisfy a prerequisite only when equivalent evidence is available.
+

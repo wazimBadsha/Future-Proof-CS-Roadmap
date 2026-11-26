@@ -1,5 +1,7 @@
 # Social Media Drafts
 
+**Updated:** 2026-11-27 · Use the public website URL only after a successful GitHub Pages deployment is verified. Until then, share the repository URL.
+
 ## X — single post
 
 I’ve been working on a question that keeps coming up in AI-assisted software engineering:
@@ -8,7 +10,7 @@ I’ve been working on a question that keeps coming up in AI-assisted software e
 
 I turned the answer into a living roadmap:
 
-CS fundamentals → systems → networking → databases → security → cloud → distributed systems → ML → LLM engineering → agents → evaluation → AI security.
+CS fundamentals → discrete math → theory of computation → compilers → systems → distributed/data engineering → parallel/GPU computing → ML/LLM → agents → evaluation → AI security → accessibility.
 
 The key idea is simple:
 
@@ -23,6 +25,11 @@ The roadmap focuses on what remains durable:
 - testing
 - verification
 - system ownership
+- mathematical reasoning and formal methods
+- compilers and language runtimes
+- parallel/GPU computing
+- data engineering and model serving
+- accessibility and human-centered design
 
 And then it layers modern agentic engineering on top: tools, MCP, state, evaluation, observability and human approval.
 
@@ -109,6 +116,8 @@ Especially for fast-moving AI infrastructure, I don't want a roadmap that quietl
 
 **6/**
 
+The detailed curriculum now includes nine advanced tracks: discrete mathematics, theory of computation, compilers, parallel/GPU computing, foundation-model engineering, data engineering, formal methods, embedded/edge systems and human-centered engineering.
+
 The repo is intentionally a living document.
 
 I'm building it around one loop:
@@ -143,6 +152,10 @@ A durable engineer needs two tracks:
 - security
 - cloud/SRE
 - software architecture
+- discrete mathematics and theory of computation
+- compilers and programming-language implementation
+- parallel/GPU and embedded systems
+- formal methods and model checking
 
 **Track 2 — AI-native engineering**
 - ML/LLM fundamentals
@@ -157,6 +170,9 @@ A durable engineer needs two tracks:
 - AI security
 - governance
 - human-in-the-loop workflows
+- foundation-model post-training and inference optimization
+- data engineering and multimodal systems
+- accessibility, privacy and engineering ethics
 
 The important shift isn't from “coding” to “AI”.
 
