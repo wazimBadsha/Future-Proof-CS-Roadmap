@@ -639,3 +639,77 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resources:** [Hugging Face Transformers PEFT](https://huggingface.co/docs/transformers/peft), [Hugging Face TRL](https://huggingface.co/docs/trl/index), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), [TensorRT-LLM documentation](https://docs.nvidia.com/tensorrt-llm/), and [vLLM production metrics](https://docs.vllm.ai/en/latest/usage/metrics/). These tool-specific resources illustrate implementations; concepts should be learned independently of any one serving stack.
 
+---
+
+## Stage P — Data engineering and analytical systems
+
+**Purpose:** design trustworthy data systems that support operational software, analytics, machine learning and AI products.
+
+**Prerequisites:** SQL and database fundamentals, networking, distributed-systems basics, and programming with files/APIs.
+
+### P1. Data modeling and storage
+- Conceptual, logical and physical data models
+- OLTP versus OLAP workload characteristics
+- Dimensional modeling, facts, dimensions and slowly changing dimensions
+- Columnar versus row-oriented storage
+- Partitioning, clustering, indexes and compression
+- Schema evolution and backward/forward compatibility
+
+### P2. Batch and streaming
+- Batch processing, incremental processing and replay
+- Event time versus processing time
+- Watermarks, late data and windowing
+- Delivery semantics, deduplication and idempotent consumers
+- Stream-table duality and materialized views
+- CDC, log compaction and event retention
+
+### P3. Pipelines and orchestration
+- DAG-based workflow orchestration
+- Dependency management, retries, backfills and resumability
+- Data contracts and schema registries
+- Data quality checks and quarantine paths
+- Lineage, provenance and reproducible transformations
+- SLAs/SLOs for freshness and completeness
+
+### P4. Lakehouse and analytical platforms
+- Object storage and open table formats
+- Metadata/catalog services
+- ACID table operations and concurrent writers
+- Query engines and workload isolation
+- Cost/performance trade-offs in compute/storage separation
+- Governance, access controls and retention
+
+### P5. ML/AI data readiness
+- Dataset versioning and lineage
+- Label quality, sampling bias and class imbalance
+- Train/validation/test leakage prevention
+- Feature stores and online/offline consistency
+- Embedding indexes and refresh strategies
+- Evaluation dataset governance and deletion propagation
+
+### Labs
+1. Build a batch pipeline with idempotent incremental loads and a replayable backfill.
+2. Consume an event stream with late arrivals, duplicate delivery and schema evolution.
+3. Add data contracts, quality gates, lineage and failure quarantine.
+4. Build an analytical model and compare query plans for representative workloads.
+5. Create a versioned ML dataset and prove that evaluation data does not leak into training.
+
+### Deliverables
+- Data architecture diagram and workload assumptions.
+- Reproducible batch or streaming pipeline with tests.
+- Data contract and schema-evolution policy.
+- Data quality dashboard with freshness, completeness and validity indicators.
+- Dataset lineage and deletion/retention policy.
+
+### Measurable exit assessment
+- Select an appropriate storage/layout for OLTP, analytics and event workloads.
+- Explain event time, processing time, watermarks and late-arriving data.
+- Design replay and deduplication without assuming exactly-once delivery across arbitrary external systems.
+- Detect schema drift and prevent invalid data from silently reaching downstream consumers.
+- Demonstrate lineage from source event to analytical/model output.
+- Explain how privacy deletion, retention and access policy propagate through derived datasets and indexes.
+
+**Exit gate:** operate a pipeline through duplicate events, late data, schema change and backfill; reconcile source and destination counts and document recovery behavior.
+
+**Primary resources:** [Apache Kafka documentation](https://kafka.apache.org/documentation/), [Apache Flink documentation](https://flink.apache.org/), [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/), and [dbt documentation](https://docs.getdbt.com/). Select implementations based on workload and operational constraints rather than treating a tool as the architecture.
+
