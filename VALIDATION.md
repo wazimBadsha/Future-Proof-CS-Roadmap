@@ -41,7 +41,7 @@ The 2026-11-27 research snapshot adds or refreshes primary references for:
 
 - MIT 6.042J discrete mathematics and MIT 18.404J theory of computation.
 - LLVM Kaleidoscope and Crafting Interpreters.
-- OpenMP API 6.1 (November 2026), NVIDIA CUDA and MPI.
+- OpenMP API 6.0 (latest published specification on the review date) and Technical Report 15 (July 2026 public-comment draft for API 6.1), NVIDIA CUDA and MPI.
 - Hugging Face PEFT and TRL, NVIDIA TensorRT-LLM and vLLM production metrics.
 - Kafka, Flink, Iceberg and dbt.
 - TLA+, Alloy, Embedded Rust and W3C WCAG 2.2.
