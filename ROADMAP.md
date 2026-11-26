@@ -841,3 +841,71 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resources:** [The Embedded Rust Book](https://docs.rust-embedded.org/book/) and [Embedded Rust Discovery](https://rust-embedded.org/discovery/). Hardware-specific labs require compatible hardware; the theory and simulation tasks remain available without it.
 
+---
+
+## Stage S — Human-centered software, accessibility and engineering ethics
+
+**Purpose:** build software that is usable, accessible, understandable and responsible for the people affected by it. Technical correctness alone does not establish product quality.
+
+**Prerequisites:** basic programming and software engineering; this stage should be revisited throughout the roadmap rather than treated as a one-time gate.
+
+### S1. Product and interaction foundations
+- User needs, jobs-to-be-done and task analysis
+- Requirements discovery and assumption testing
+- Information architecture and navigation
+- Interaction states, feedback, errors and recovery
+- Progressive disclosure and cognitive load
+- Usability testing and qualitative evidence
+
+### S2. Accessibility engineering
+- Semantic HTML and native platform controls
+- Keyboard access and visible focus
+- Screen-reader semantics and accessible names
+- Focus order, dialogs and dynamic updates
+- Color contrast, zoom, reflow and reduced motion
+- Forms, validation and error identification
+- WCAG conformance levels and evaluation limitations
+
+### S3. Inclusive and global software
+- Localization versus translation
+- Internationalization, Unicode and bidirectional text
+- Date, time, number, currency and measurement formats
+- Low-bandwidth and assistive-technology constraints
+- Device diversity and responsive behavior
+- Privacy-aware analytics and consent
+
+### S4. Ethics and societal impact
+- Data minimization, consent and purpose limitation
+- Bias, representational harms and disparate impact
+- Explainability and contestability appropriate to context
+- Human oversight and appeal paths
+- Accessibility, safety and misuse risk
+- Environmental and compute-cost awareness
+- Responsible disclosure and professional accountability
+
+### Labs
+1. Audit a real workflow using keyboard-only navigation and a screen reader.
+2. Fix semantic, focus, contrast and form-error issues in a small application.
+3. Localize a workflow for a second locale, including date/time and bidirectional text.
+4. Run a moderated usability test and separate observations from interpretation.
+5. Create a data-flow map identifying collection purpose, retention and deletion paths.
+
+### Deliverables
+- Accessibility audit with reproducible issues and verified fixes.
+- User journey and usability findings.
+- Localization test matrix.
+- Privacy/data-flow map and retention policy.
+- Decision record for one ethical or accessibility trade-off.
+
+### Measurable exit assessment
+- Navigate the complete critical workflow without a pointer.
+- Identify inaccessible names, roles, states and focus transitions.
+- Explain the difference between automated accessibility checks and human evaluation.
+- Demonstrate correct locale-aware formatting and bidirectional layout.
+- Trace personal data from collection to deletion and identify downstream copies.
+- Explain whose needs or risks are not represented by the available evidence.
+
+**Exit gate:** complete a keyboard and assistive-technology review of a critical flow, resolve high-impact findings, and document residual limitations honestly.
+
+**Primary resource:** [W3C Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/). WCAG is a technical standard; conformance claims require evaluation against the applicable success criteria and scope.
+
