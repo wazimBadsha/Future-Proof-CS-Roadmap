@@ -413,3 +413,67 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resource:** [MIT 18.404J Theory of Computation](https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/). The official syllabus lists automata, regular and context-free languages, decidability, reductions, time/space complexity, completeness and probabilistic computation.
 
+---
+
+## Stage M — Compilers, interpreters and programming-language implementation
+
+**Purpose:** understand how source code becomes executable behavior, and how language design choices affect correctness, performance, safety and developer experience.
+
+**Prerequisites:** Stage A programming foundations, Stage K proofs/induction and Stage L grammars/automata. Familiarity with C, C++ or Rust is useful but not mandatory for the first interpreter.
+
+### M1. Language design
+- Syntax versus semantics
+- Static and dynamic typing; nominal and structural typing
+- Type inference, generics and polymorphism
+- Scope, closures, evaluation order and mutability
+- Memory ownership, garbage collection and lifetimes
+- Error models, exceptions and algebraic data types
+
+### M2. Front ends
+- Lexing and token streams
+- Parsing: recursive descent, Pratt parsing and parser generators
+- Abstract syntax trees and source locations
+- Name resolution, symbol tables and scopes
+- Type checking and semantic analysis
+- Diagnostics and error recovery
+
+### M3. Intermediate representations and optimization
+- AST versus intermediate representation (IR)
+- Control-flow graphs and basic blocks
+- Static single assignment (SSA) intuition
+- Data-flow analysis and liveness
+- Constant folding, dead-code elimination and inlining
+- Optimization correctness and debug information
+
+### M4. Back ends and execution
+- Bytecode interpreters and virtual machines
+- Instruction selection and register allocation concepts
+- Calling conventions, stack frames and linking
+- JIT versus ahead-of-time compilation
+- Runtime systems, garbage collectors and deoptimization
+- WebAssembly and portable execution models
+
+### Labs
+1. Implement a tokenizer and Pratt parser for arithmetic and boolean expressions.
+2. Add lexical scopes, variables, functions and closures to a tree-walk interpreter.
+3. Add a static type checker for a deliberately small type system.
+4. Compile the language to bytecode and implement a stack VM.
+5. Add one semantics-preserving optimization and prove it with differential/property tests.
+
+### Deliverables
+- A documented mini-language with grammar and semantics.
+- An interpreter plus test suite.
+- A bytecode VM or LLVM-based compiler prototype.
+- A short design note explaining type, memory and error-model choices.
+
+### Measurable exit assessment
+- Explain the difference between parsing, semantic analysis, IR lowering and code generation.
+- Trace a source expression through tokens, AST, IR and execution.
+- Identify a scope/type error before runtime.
+- Explain why an optimization preserves observable behavior under stated assumptions.
+- Diagnose a stack-frame, calling-convention or runtime-lifetime bug.
+
+**Exit gate:** implement the language pipeline end-to-end and pass tests for precedence, scoping, type errors, runtime errors and optimization equivalence.
+
+**Primary resources:** [LLVM Kaleidoscope tutorial](https://llvm.org/docs/tutorial/) for a progressive language implementation; [Crafting Interpreters](https://craftinginterpreters.com/) for interpreters and runtime design. These are complementary practical references, not substitutes for compiler theory.
+
