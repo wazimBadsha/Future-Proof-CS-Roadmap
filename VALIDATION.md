@@ -2,11 +2,13 @@
 
 **Validation snapshot:** 2026-11-27  
 **Repository:** https://github.com/wazimBadSha/Future-Proof-CS-Roadmap  
-**Working branch:** `roadmap/complete-curriculum-2026-11`
+**Default branch:** `main`  
+**Merged commit:** `3395b78d8a66299414b2cef6330f2215d190df1e`  
+**Pull request:** [#1](https://github.com/wazimBadSha/Future-Proof-CS-Roadmap/pull/1) — merged
 
 ## Result
 
-The curriculum and static site have been expanded on the working branch. A dependency-free structural/accessibility-basics validator is now part of CI and its first observed run passed. This report does **not** claim that the changes are merged to `main`, that every external URL has been exhaustively crawled, that WCAG conformance has been certified, or that GitHub Pages is live.
+The expanded curriculum and static site are merged to `main`. The dependency-free structural/accessibility-basics validator passed on both the pull request and the merged default-branch commit. This report does **not** claim that every external URL has been exhaustively crawled, that WCAG conformance has been certified, or that GitHub Pages is live.
 
 ## Repository inventory
 
@@ -53,8 +55,9 @@ See `RESEARCH.md` for dated claims, dispositions and evidence limitations. Versi
 
 Workflow: [Validate roadmap site](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913387799)
 
-**Observed result:** success  
-**Commit:** `b59ddef3d34bc6fe0b442a18b2b86cd4bb968b43`  
+**Pull request run:** [45913727776](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913727776) — success  
+**Main-branch run:** [45913772226](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913772226) — success  
+**Merged commit:** `3395b78d8a66299414b2cef6330f2215d190df1e`  
 **Job:** `validate` — success  
 **Python:** 3.12.16  
 **Validator output:** `SITE VALIDATION PASSED: 13 unique ids, 30 links`
@@ -85,15 +88,19 @@ Expected URL:
 
 The repository metadata currently reports **public** visibility. This differs from the private state recorded in the September report.
 
-The latest previously observed Pages workflow is [run 21](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/33884679089), from 4 September 2026. It failed at `Configure Pages`; artifact upload and deployment were skipped. That failure predates the current public visibility state.
+The latest Pages attempt is [run 22](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913772267), triggered after merge on 27 November 2026. Its validation job succeeded, but `Configure Pages` failed with:
 
-A live deployment is **not yet verified** in this audit. The Pages settings endpoint was not exposed by the connected repository actions, and an attempt to open the expected Pages URL through the available web reader did not return a usable page response. Neither observation proves the Pages site is disabled or enabled. A fresh workflow run and deployment record are required.
+> `Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions ... Error: Not Found`
+
+Artifact upload and deployment were skipped. The repository is public, so private-repository plan eligibility is no longer the relevant blocker. The remaining external action is to enable/configure Pages under repository settings with **Build and deployment → Source = GitHub Actions**. The connected GitHub actions did not expose a Pages-settings mutation capability, so this setting could not be changed autonomously.
+
+A live deployment is **not verified**. The expected Pages URL must be checked after a new successful deployment.
 
 ### Release gate
 
 1. Open [Repository Settings → Pages](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/settings/pages).
 2. Confirm **Build and deployment → Source = GitHub Actions**.
-3. Trigger or rerun the Pages workflow after the branch is merged to `main`.
+3. Save the setting, then rerun `Deploy GitHub Pages` or push a new commit to `main`.
 4. Confirm Configure Pages, artifact upload and Deploy to GitHub Pages all succeed.
 5. Confirm a GitHub Pages deployment record exists and its URL is the expected URL.
 6. Open the site in a normal unauthenticated browser.
@@ -119,7 +126,7 @@ Figma file: https://www.figma.com/design/jrcJif6fJp3nhcwSrq8pyi/Future-Proof-CS-
 - External link reachability is not fully automated; links can move or content can change.
 - Accessibility basics are checked statically, not certified against WCAG.
 - Figma and HTML are updated separately and can drift.
-- GitHub Pages publication remains unverified pending a fresh successful deployment.
+- GitHub Pages publication remains blocked until the repository Pages source is set to GitHub Actions and a deployment succeeds.
 
 ## Confidence
 
@@ -132,4 +139,4 @@ Figma file: https://www.figma.com/design/jrcJif6fJp3nhcwSrq8pyi/Future-Proof-CS-
 | External-link network crawl | Not run |
 | Figma structure and track-card insertion | Verified by metadata read-back and screenshot |
 | Pages deployment | Not verified |
-| Merge to main | Pending |
+| Merge to main | Verified — PR #1 merged as `3395b78d8a66299414b2cef6330f2215d190df1e` |
