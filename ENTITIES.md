@@ -85,7 +85,7 @@ This registry names the major entities used by the roadmap and points readers to
 
 | Entity | Scope | Canonical URL |
 |---|---|---|
-| OpenMP API 6.1 | Shared-memory parallel programming; released November 2026 | https://www.openmp.org/specifications/ |
+| OpenMP API 6.0 / Technical Report 15 | API 6.0 latest published spec; TR15 is a July 2026 public-comment draft of API 6.1 | https://www.openmp.org/specifications/ |
 | NVIDIA CUDA Programming Guide | GPU programming and performance | https://docs.nvidia.com/cuda/cuda-programming-guide/index.html |
 | MPI Forum | Message-passing interface standards | https://www.mpi-forum.org/docs/ |
 | Embedded Rust Book | Bare-metal and resource-constrained systems | https://docs.rust-embedded.org/book/ |
