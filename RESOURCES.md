@@ -39,7 +39,7 @@ This registry prioritizes primary specifications, official documentation, univer
 | Kubernetes | Production container orchestration concepts | https://kubernetes.io/docs/concepts/overview/ |
 | PostgreSQL | Relational data modeling, SQL, transactions, concurrency and administration | https://www.postgresql.org/docs/current/ |
 | Git | Version control and repository mechanics | https://git-scm.com/doc |
-| OpenMP API 6.1 | Shared-memory parallel programming specification; released November 2026 | https://www.openmp.org/specifications/ |
+| OpenMP API 6.0 / Technical Report 15 | API 6.0 is the latest published specification; TR15 is a July 2026 public-comment draft of API 6.1 | https://www.openmp.org/specifications/ |
 | NVIDIA CUDA Programming Guide | GPU execution model, memory, kernels and performance | https://docs.nvidia.com/cuda/cuda-programming-guide/index.html |
 | MPI Forum | Message-passing interface specifications | https://www.mpi-forum.org/docs/ |
 | Embedded Rust Book | Bare-metal firmware, peripherals and safer embedded Rust practices | https://docs.rust-embedded.org/book/ |
