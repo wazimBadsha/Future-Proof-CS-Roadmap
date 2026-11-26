@@ -88,11 +88,11 @@ Expected URL:
 
 The repository metadata currently reports **public** visibility. This differs from the private state recorded in the September report.
 
-The latest Pages attempt is [run 22](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913772267), triggered after merge on 27 November 2026. Its validation job succeeded, but `Configure Pages` failed with:
+A Pages attempt after merge is [run 22](https://github.com/wazimBadsha/Future-Proof-CS-Roadmap/actions/runs/45913772267), triggered on 27 November 2026. Its validation job succeeded, but `Configure Pages` failed with:
 
 > `Get Pages site failed. Please verify that the repository has Pages enabled and configured to build using GitHub Actions ... Error: Not Found`
 
-Artifact upload and deployment were skipped. The repository is public, so private-repository plan eligibility is no longer the relevant blocker. The remaining external action is to enable/configure Pages under repository settings with **Build and deployment → Source = GitHub Actions**. The connected GitHub actions did not expose a Pages-settings mutation capability, so this setting could not be changed autonomously.
+Artifact upload and deployment were skipped. The repository is public, so private-repository plan eligibility is no longer the relevant blocker. The remaining external action is to enable/configure Pages under repository settings with **Build and deployment → Source = GitHub Actions**. The connected GitHub actions did not expose a Pages-settings mutation capability, so this setting could not be changed autonomously. The Pages workflow is now path-filtered to site inputs and its own workflow file, so documentation-only updates do not trigger unnecessary deployments.
 
 A live deployment is **not verified**. The expected Pages URL must be checked after a new successful deployment.
 
