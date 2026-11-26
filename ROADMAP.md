@@ -477,3 +477,77 @@ This turns "I know X" into inspectable evidence.
 
 **Primary resources:** [LLVM Kaleidoscope tutorial](https://llvm.org/docs/tutorial/) for a progressive language implementation; [Crafting Interpreters](https://craftinginterpreters.com/) for interpreters and runtime design. These are complementary practical references, not substitutes for compiler theory.
 
+---
+
+## Stage N — Parallel, concurrent and GPU computing
+
+**Purpose:** reason about performance when work executes across cores, vector lanes, accelerators and multiple devices. Parallelism is not automatically faster: synchronization, memory movement, contention and workload shape determine the result.
+
+**Prerequisites:** programming, data structures, operating-system processes/threads, memory hierarchy and basic algorithm analysis.
+
+### N1. Concurrency and parallelism
+- Concurrency versus parallel execution
+- Shared-memory and message-passing models
+- Data races, race freedom and happens-before
+- Locks, atomics, barriers, condition variables and semaphores
+- Deadlock, livelock, starvation and false sharing
+- Work decomposition, task scheduling and work stealing
+- Amdahl's law, Gustafson's law and scalability limits
+
+### N2. CPU architecture and vectorization
+- Cache hierarchy, cache lines and locality
+- SIMD/vector instructions and alignment
+- Branch prediction and instruction-level parallelism
+- NUMA awareness and memory bandwidth
+- Profiling, flame graphs and hardware counters
+- Roofline-model intuition: compute-bound versus bandwidth-bound
+
+### N3. Parallel programming models
+- Thread pools, futures and structured concurrency
+- OpenMP work-sharing, tasks and synchronization
+- Message passing and MPI concepts
+- Map/reduce and distributed data-parallel patterns
+- Cancellation, bounded queues and backpressure
+- Deterministic testing of concurrent behavior
+
+### N4. GPU programming
+- CPU/GPU execution and host/device memory
+- Kernels, grids, blocks, warps and threads
+- Memory coalescing, shared memory and occupancy
+- Synchronization, atomics and race detection
+- Transfers, batching and launch overhead
+- Multi-GPU communication and collective operations
+- GPU profiling and numerical precision trade-offs
+
+### N5. AI/HPC connection
+- Tensor operations and matrix multiplication
+- Mixed precision and accumulation behavior
+- Data parallelism, tensor parallelism and pipeline parallelism
+- Gradient synchronization and checkpointing
+- KV-cache memory, batching and serving throughput
+- Benchmarking throughput, latency, utilization and cost
+
+### Labs
+1. Implement a parallel reduction and compare it with a serial reference.
+2. Reproduce a race condition, then remove it using a documented synchronization strategy.
+3. Benchmark CPU vectorization and memory-layout alternatives.
+4. Implement a GPU vector-add or matrix-multiplication kernel when compatible hardware is available; otherwise use a simulator or inspect a provided kernel.
+5. Profile an inference workload and identify whether it is compute-, memory-, transfer- or scheduling-bound.
+
+### Deliverables
+- A serial-versus-parallel benchmark with reproducible workload and hardware notes.
+- A race-free concurrent worker pool with cancellation and bounded backpressure.
+- A GPU kernel report with correctness tests and profiler evidence, or a clearly labeled hardware-unavailable analysis.
+
+### Measurable exit assessment
+- Distinguish concurrency, parallelism and asynchronous I/O.
+- Explain a data race using happens-before reasoning.
+- Estimate the theoretical speedup limit for a workload using Amdahl's law.
+- Identify cache false sharing or memory-bandwidth bottlenecks from measurements.
+- Explain GPU occupancy, memory coalescing and transfer overhead at a conceptual level.
+- Report performance with warm-up, repeated trials, variance and correctness checks.
+
+**Exit gate:** submit a reproducible benchmark, demonstrate race-free behavior under stress, and explain one optimization whose benefit is supported by measurements rather than assumption.
+
+**Primary resources:** [OpenMP specifications](https://www.openmp.org/specifications/) (OpenMP API 6.1 was released in November 2026), [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html), and [MPI Forum documents](https://www.mpi-forum.org/docs/). GPU labs are hardware-dependent; CPU concurrency and measurement labs remain required.
+
