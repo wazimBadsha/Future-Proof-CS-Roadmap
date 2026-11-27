@@ -33,6 +33,9 @@ run_vercel() {
 printf 'Checking Vercel CLI identity and access...\n' >&2
 run_vercel whoami --format json >/dev/null
 
+printf 'Confirming target project and team scope...\n' >&2
+run_vercel project inspect "$VERCEL_PROJECT_NAME" --non-interactive --scope "$VERCEL_SCOPE" --cwd "$SITE_DIR" >/dev/null
+
 printf 'Deploying %s to project %s (team scope: %s)...\n' \
   "$SITE_DIR" "$VERCEL_PROJECT_NAME" "$VERCEL_SCOPE" >&2
 
