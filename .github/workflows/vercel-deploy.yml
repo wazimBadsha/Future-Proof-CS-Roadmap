@@ -1,0 +1,54 @@
+name: Deploy to Vercel (CLI)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy static site to production
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Deploy and verify production
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_CLI_VERSION: "67.0.0"
+          VERCEL_PROJECT_NAME: future_cs_roadmap
+          VERCEL_SCOPE: wazimbadshas-projects
+          VERCEL_PRODUCTION_URL: https://futurecsroadmap.vercel.app
+        run: |
+          if [[ -z "${VERCEL_TOKEN:-}" ]]; then
+            echo "::error title=Missing Vercel token::Add VERCEL_TOKEN as a GitHub Actions repository or environment secret."
+            exit 1
+          fi
+          bash scripts/deploy_vercel.sh
+
+      - name: Publish deployment summary
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment_url }}
+        run: |
+          {
+            echo "## Vercel production deployment"
+            echo
+            echo "- **Project:** `future_cs_roadmap`"
+            echo "- **Team:** `wazimbadshas-projects`"
+            echo "- **Deployment:** ${DEPLOYMENT_URL}"
+            echo "- **Production URL:** https://futurecsroadmap.vercel.app/"
+            echo "- **Verification:** production page title checked by the deployment script"
+          } >> "$GITHUB_STEP_SUMMARY"
