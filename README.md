@@ -914,6 +914,11 @@ Add a `VERCEL_TOKEN` secret in the repository's **Settings → Secrets and
 variables → Actions**. The token must be authorized for the target team and
 project. Do not commit the token or place it in workflow YAML.
 
-Then open **Actions → Deploy to Vercel (CLI) → Run workflow**. This workflow is
-manual by design so it does not create duplicate production deployments when
-Vercel Git integration is also enabled.
+The workflow now deploys automatically when relevant site or deployment files
+are pushed to `main`. It is also available through **Actions → Deploy to
+Vercel (CLI) → Run workflow** for manual production redeploys from `main`.
+
+Use one production deployment owner. If Vercel's native Git integration is
+already deploying `main` to production, disable that native production
+auto-deploy before enabling this CLI workflow to avoid duplicate production
+deployments. Native preview deployments for pull requests can remain enabled.
