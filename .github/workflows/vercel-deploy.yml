@@ -17,7 +17,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  validate:
+    name: Validate site before production deployment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Validate static site structure and accessibility basics
+        run: python scripts/validate_site.py
+
+      - name: Validate deployment script syntax
+        run: bash -n scripts/deploy_vercel.sh
+
   deploy:
+    needs: validate
     if: github.ref == 'refs/heads/main'
     name: Deploy static site to production
     runs-on: ubuntu-latest
