@@ -887,3 +887,33 @@ See [`RESEARCH.md`](RESEARCH.md), [`RESOURCES.md`](RESOURCES.md), [`ENTITIES.md`
 ## License
 
 This roadmap is intended as a living educational/research document. Preserve attribution when reusing substantial portions.
+
+
+## Vercel CLI deployment
+
+The static site in `docs/` can be deployed to the existing Vercel project
+`future_cs_roadmap` under the `wazimbadshas-projects` team.
+
+### Local deployment
+
+Install the pinned CLI, authenticate, and run the deployment script:
+
+```bash
+npm install --global vercel@67.0.0
+vercel login
+bash scripts/deploy_vercel.sh
+```
+
+The script deploys only `docs/` to production and verifies that
+`https://futurecsroadmap.vercel.app/` serves the expected page title. It exits
+non-zero if authentication, deployment, or the production check fails.
+
+### GitHub Actions deployment
+
+Add a `VERCEL_TOKEN` secret in the repository's **Settings → Secrets and
+variables → Actions**. The token must be authorized for the target team and
+project. Do not commit the token or place it in workflow YAML.
+
+Then open **Actions → Deploy to Vercel (CLI) → Run workflow**. This workflow is
+manual by design so it does not create duplicate production deployments when
+Vercel Git integration is also enabled.
