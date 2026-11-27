@@ -1,6 +1,12 @@
 name: Deploy to Vercel (CLI)
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'scripts/deploy_vercel.sh'
+      - '.github/workflows/vercel-deploy.yml'
   workflow_dispatch:
 
 permissions:
@@ -12,12 +18,15 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     name: Deploy static site to production
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
