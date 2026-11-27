@@ -25,3 +25,5 @@ jobs:
           python-version: "3.12"
       - name: Validate static site structure and accessibility basics
         run: python scripts/validate_site.py
+      - name: Validate Vercel deployment script syntax
+        run: bash -n scripts/deploy_vercel.sh
